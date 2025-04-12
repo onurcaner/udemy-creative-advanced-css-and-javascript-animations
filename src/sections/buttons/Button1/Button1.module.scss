@@ -1,0 +1,69 @@
+@mixin grid-span-full() {
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+.button {
+  position: relative;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  overflow: hidden;
+
+  color: var(--color-neutral-800);
+  border-color: var(--color-neutral-800);
+
+  cursor: pointer;
+
+  &:hover .dynamicBackground {
+    rotate: 0deg;
+  }
+}
+
+.contentWrapper {
+  @include grid-span-full();
+
+  padding: 1rem 2rem;
+}
+
+.dynamicBackground {
+  @include grid-span-full();
+
+  position: relative;
+  z-index: -1;
+
+  rotate: 90deg;
+
+  opacity: 25%;
+  background-color: var(--color-neutral-400);
+
+  transition: rotate 1s ease-in-out;
+}
+.dynamicBackgroundTopLeft {
+  @extend .dynamicBackground;
+
+  transform-origin: top left;
+}
+.dynamicBackgroundBottomRight {
+  @extend .dynamicBackground;
+
+  transform-origin: bottom right;
+}
+
+.staticBackground {
+  @include grid-span-full();
+
+  position: relative;
+  z-index: -2;
+
+  background-color: var(--color-neutral-100);
+}

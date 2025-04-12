@@ -1,0 +1,28 @@
+.nav {
+  position: sticky;
+  top: 0;
+
+  width: 100vw;
+  border-bottom: 1px solid lime;
+  margin-bottom: 0.5rem;
+
+  border-color: var(--color-neutral-300);
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+}
+
+.link {
+  font-weight: 600;
+
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-200);
+}
