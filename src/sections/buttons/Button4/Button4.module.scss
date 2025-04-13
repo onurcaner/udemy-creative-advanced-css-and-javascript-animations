@@ -1,0 +1,86 @@
+@use 'sass:math';
+
+$border-width: 1px;
+$border-width-on-hover: math.div(1.25rem, 4);
+
+@mixin grid-span-full() {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+}
+
+@mixin border-radius() {
+  border-radius: 100rem;
+}
+
+@mixin transition() {
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+.button {
+  @include border-radius();
+  @include transition();
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+
+  position: relative;
+
+  background-color: var(--color-neutral-200);
+
+  cursor: pointer;
+
+  &:hover {
+    .contentWrapper {
+      font-weight: 800;
+      letter-spacing: 0.2ch;
+
+      color: var(--color-neutral-700);
+    }
+
+    .borderBackground {
+      width: calc(100% + ($border-width-on-hover * 2));
+      height: calc(100% + ($border-width-on-hover * 2));
+      translate: ($border-width-on-hover * -1) ($border-width-on-hover * -1);
+
+      background-color: var(--color-neutral-500);
+    }
+  }
+}
+
+.contentWrapper {
+  @include grid-span-full();
+  @include border-radius();
+  @include transition();
+
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+
+  padding: 1rem 2rem;
+
+  color: var(--color-neutral-800);
+
+  transition-property: font-weight, letter-spacing, color;
+}
+
+.borderBackground {
+  @include grid-span-full();
+  @include border-radius();
+  @include transition();
+
+  position: relative;
+  z-index: -1;
+
+  width: calc(100% + ($border-width * 2));
+  height: calc(100% + ($border-width * 2));
+  translate: ($border-width * -1) ($border-width * -1);
+
+  background-color: var(--color-neutral-400);
+
+  transition-property: width, height, translate, background-color;
+}

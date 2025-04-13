@@ -1,0 +1,56 @@
+@mixin grid-span-full() {
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+.button {
+  position: relative;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  overflow: hidden;
+
+  border-color: var(--color-neutral-800);
+
+  cursor: pointer;
+
+  &:hover .dynamicContentWrapper {
+    translate: 0 0;
+  }
+}
+
+.staticContentWrapper,
+.dynamicContentWrapper {
+  @include grid-span-full();
+
+  position: relative;
+
+  padding: 1rem 2rem;
+}
+
+.staticContentWrapper {
+  z-index: 0;
+
+  color: var(--color-neutral-800);
+  background-color: var(--color-neutral-200);
+}
+
+.dynamicContentWrapper {
+  z-index: 1;
+
+  translate: 0 -100%;
+
+  color: var(--color-neutral-200);
+  background-color: var(--color-neutral-800);
+
+  transition: translate 1s ease-out;
+}
