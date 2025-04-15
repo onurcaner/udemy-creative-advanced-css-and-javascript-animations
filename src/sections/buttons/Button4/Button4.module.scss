@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-$border-width: 1px;
+$border-width: 2px;
 $border-width-on-hover: math.div(1.25rem, 4);
 
 @mixin grid-span-full() {

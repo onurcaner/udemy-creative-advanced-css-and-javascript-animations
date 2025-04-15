@@ -1,0 +1,67 @@
+@use 'sass:math';
+
+$transition-duration: 1s;
+
+.button {
+  perspective: 100rem;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+
+  cursor: pointer;
+
+  &:hover {
+    .contentWrapper {
+      rotate: 0 0 0 0deg;
+    }
+    .contentWrapper2 {
+      transition-delay: 1ms;
+    }
+    .contentWrapper3 {
+      transition-delay: math.div($transition-duration, 2);
+    }
+  }
+}
+
+.contentWrapper {
+  backface-visibility: visible;
+
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+
+  transition: rotate $transition-duration ease-in-out;
+}
+.contentWrapper1 {
+  @extend .contentWrapper;
+
+  color: var(--color-neutral-800);
+  background-color: var(--color-neutral-200);
+}
+.contentWrapper2 {
+  @extend .contentWrapper;
+
+  transform-origin: top;
+  rotate: 1 0 0 268.5deg;
+
+  color: var(--color-neutral-200);
+  background-color: var(--color-green-700);
+
+  transition-delay: math.div($transition-duration, 2);
+}
+.contentWrapper3 {
+  @extend .contentWrapper;
+
+  transform-origin: bottom;
+  rotate: 1 0 0 -268.5deg;
+
+  color: var(--color-neutral-200);
+  background-color: var(--color-sky-700);
+}

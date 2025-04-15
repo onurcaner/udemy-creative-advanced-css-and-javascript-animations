@@ -23,34 +23,45 @@
 
   cursor: pointer;
 
-  &:hover .dynamicContentWrapper {
-    translate: 0 0;
+  &:hover {
+    .firstContentWrapper {
+      translate: 100% -100%;
+    }
+    .secondContentWrapper {
+      translate: 0 0;
+    }
   }
 }
 
-.staticContentWrapper,
-.dynamicContentWrapper {
+.contentWrapper {
   @include grid-span-full();
 
-  position: relative;
-
   padding: 1rem 2rem;
-}
 
-.staticContentWrapper {
-  z-index: 0;
+  transition: translate 1s ease-out;
+}
+.firstContentWrapper {
+  @extend .contentWrapper;
+
+  translate: 0 0;
 
   color: var(--color-neutral-800);
   background-color: var(--color-neutral-200);
 }
+.secondContentWrapper {
+  @extend .contentWrapper;
 
-.dynamicContentWrapper {
-  z-index: 1;
-
-  translate: 0 -100%;
+  translate: -100% 100%;
 
   color: var(--color-neutral-200);
   background-color: var(--color-neutral-800);
+}
 
-  transition: translate 1s ease-out;
+.background {
+  @include grid-span-full();
+
+  position: relative;
+  z-index: -1;
+
+  background-color: var(--color-neutral-500);
 }

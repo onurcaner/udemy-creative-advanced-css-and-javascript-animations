@@ -1,6 +1,6 @@
 @mixin transition() {
   transition-duration: 1s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
 }
 
 .button {
@@ -12,7 +12,7 @@
   font-weight: 500;
 
   padding: 1rem 2rem;
-  border: 1px solid currentColor;
+  border: 2px solid currentColor;
   border-radius: 1px;
   overflow: hidden;
 
