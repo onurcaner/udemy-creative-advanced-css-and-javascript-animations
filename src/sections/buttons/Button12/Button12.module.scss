@@ -1,0 +1,115 @@
+@mixin transition() {
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.button {
+  @include transition();
+
+  position: relative;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 0;
+  margin: 1rem 2rem;
+  border-radius: 10rem;
+
+  color: var(--color-neutral-800);
+  background-color: transparent;
+
+  cursor: pointer;
+  transition-property: margin, padding, color, background-color;
+
+  &:hover {
+    margin: 0 0;
+    padding: 1rem 2rem;
+
+    color: var(--color-neutral-200);
+    background-color: var(--color-neutral-800);
+  }
+
+  &:hover {
+    .disk {
+      left: 50%;
+
+      opacity: 1;
+    }
+
+    .disk3,
+    .disk4 {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .disk2,
+    .disk5 {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .disk1,
+    .disk6 {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+.contentWrapper {
+  @include transition();
+
+  position: relative;
+  z-index: 1;
+}
+
+.disk {
+  @include transition();
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 0rem;
+  height: 0rem;
+  border-radius: 50%;
+
+  translate: -50% -50%;
+
+  background-color: var(--color-neutral-800);
+  opacity: 0;
+
+  pointer-events: none;
+  transition-property: left, width, height, opacity;
+}
+
+.disk1 {
+  @extend .disk;
+
+  left: -200%;
+}
+.disk2 {
+  @extend .disk;
+
+  left: -100%;
+}
+.disk3 {
+  @extend .disk;
+
+  left: 0%;
+}
+.disk4 {
+  @extend .disk;
+
+  left: 100%;
+}
+.disk5 {
+  @extend .disk;
+
+  left: 200%;
+}
+.disk6 {
+  @extend .disk;
+
+  left: 300%;
+}

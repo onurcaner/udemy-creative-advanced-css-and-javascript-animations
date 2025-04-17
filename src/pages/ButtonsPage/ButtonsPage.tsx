@@ -10,6 +10,9 @@ import { Button7 } from '../../sections/buttons/Button7/Button7';
 import { Button8 } from '../../sections/buttons/Button8/Button8';
 import { Button9 } from '../../sections/buttons/Button9/Button9';
 import { Button10 } from '../../sections/buttons/Button10/Button10';
+import { Button11 } from '../../sections/buttons/Button11/Button11';
+import { Button12 } from '../../sections/buttons/Button12/Button12';
+import { Button13 } from '../../sections/buttons/Button13/Button13';
 
 import styles from './ButtonsPage.module.scss';
 
@@ -25,6 +28,9 @@ export function ButtonsPage(): JSX.Element {
     Button8,
     Button9,
     Button10,
+    Button11,
+    Button12,
+    Button13,
   ];
 
   return (

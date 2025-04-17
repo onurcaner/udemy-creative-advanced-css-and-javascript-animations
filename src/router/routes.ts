@@ -35,7 +35,7 @@ class Routes {
     const route = this.routes.find(({ name }) => name === routeName);
     if (!route)
       throw new Error(
-        'Routes.prototype.get could not be able to get route attributes',
+        'Routes.prototype.get() could not be able to get route attributes',
       );
 
     return route;

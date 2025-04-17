@@ -1,0 +1,61 @@
+.button {
+  perspective: 100rem;
+  position: relative;
+
+  cursor: pointer;
+
+  &:hover {
+    .background1 {
+      rotate: 1 0 0 60deg;
+    }
+    .background2 {
+      rotate: 1 0 0 -60deg;
+    }
+  }
+}
+
+.contentWrapper {
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+
+  color: var(--color-neutral-800);
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+
+  width: calc(100% - 0.5rem);
+  height: calc(100% - 0.5rem);
+
+  rotate: 1 0 0 0deg;
+
+  mix-blend-mode: screen;
+
+  transition: rotate 1s ease-in-out;
+}
+
+.background1 {
+  @extend .background;
+
+  bottom: 0.5rem;
+  right: 0.5rem;
+
+  transform-origin: 50% 0% -0.5rem;
+
+  background-color: var(--color-blue-500);
+}
+.background2 {
+  @extend .background;
+
+  top: 0.5rem;
+  left: 0.5rem;
+
+  transform-origin: 50% 100% -0.5rem;
+
+  background-color: var(--color-green-500);
+}
