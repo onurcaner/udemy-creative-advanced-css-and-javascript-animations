@@ -1,0 +1,119 @@
+$border-width: 2px;
+$border-radius: 1px;
+$border-length-offset: 1rem;
+
+@mixin transition() {
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+.button {
+  position: relative;
+
+  cursor: pointer;
+
+  &:hover {
+    .contentWrapper {
+      color: var(--color-neutral-200);
+    }
+
+    .background {
+      background-color: var(--color-neutral-800);
+    }
+
+    .borderTop,
+    .borderBottom {
+      width: calc(100% - $border-length-offset);
+    }
+
+    .borderLeft,
+    .borderRight {
+      height: calc(100% - $border-length-offset);
+    }
+  }
+}
+
+.contentWrapper {
+  @include transition();
+
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+  border: $border-width solid currentColor;
+  border-radius: $border-radius;
+
+  color: var(--color-neutral-800);
+  border-color: var(--color-neutral-800);
+
+  transition-property: color;
+}
+
+.background {
+  @include transition();
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  border-radius: $border-radius;
+
+  background-color: var(--color-neutral-200);
+
+  transition-property: background-color;
+}
+
+.borders {
+  @include transition();
+
+  position: absolute;
+
+  border-radius: $border-radius;
+
+  background-color: var(--color-neutral-800);
+
+  pointer-events: none;
+  transition-property: width, height;
+}
+
+.borderTop {
+  @extend .borders;
+
+  top: -2 * $border-width;
+  left: -2 * $border-width;
+
+  width: $border-length-offset;
+  height: $border-width;
+}
+.borderBottom {
+  @extend .borders;
+
+  bottom: -2 * $border-width;
+  right: -2 * $border-width;
+
+  width: $border-length-offset;
+  height: $border-width;
+}
+.borderLeft {
+  @extend .borders;
+
+  top: -2 * $border-width;
+  left: -2 * $border-width;
+
+  width: $border-width;
+  height: $border-length-offset;
+}
+.borderRight {
+  @extend .borders;
+
+  bottom: -2 * $border-width;
+  right: -2 * $border-width;
+
+  width: $border-width;
+  height: $border-length-offset;
+}

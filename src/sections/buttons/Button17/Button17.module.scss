@@ -1,0 +1,91 @@
+@mixin transition() {
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+.button {
+  position: relative;
+
+  &:hover {
+    .contentWrapper {
+      color: var(--color-neutral-200);
+    }
+
+    .contentWrapper :first-child {
+      scale: 2;
+      translate: -0.25em -0.25em;
+      rotate: 375deg;
+    }
+
+    .hoverBackground {
+      rotate: 15deg;
+
+      opacity: 1;
+    }
+  }
+}
+
+.contentWrapper {
+  @include transition();
+
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+  border: 2px solid currentColor;
+  border-radius: 1px;
+
+  color: var(--color-neutral-800);
+  border-color: var(--color-neutral-800);
+
+  transition-property: color;
+}
+
+.contentWrapper :first-child {
+  @include transition();
+
+  display: inline-block;
+
+  transition-property: scale, translate, rotate;
+
+  scale: 1;
+  translate: 0 0;
+  rotate: 0deg;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.normalBackground {
+  @extend .background;
+  @include transition();
+
+  z-index: -2;
+
+  background-color: var(--color-neutral-200);
+
+  transition-property: rotate, background-color;
+}
+
+.hoverBackground {
+  @extend .background;
+  @include transition();
+
+  z-index: -1;
+
+  border-radius: 1px;
+
+  rotate: 0deg;
+
+  background-color: var(--color-neutral-800);
+  opacity: 0;
+
+  transition-property: rotate, opacity;
+}

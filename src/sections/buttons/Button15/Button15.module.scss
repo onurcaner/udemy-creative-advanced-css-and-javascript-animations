@@ -1,0 +1,98 @@
+$border-width: 4px;
+$transition-duration: 1s;
+
+@mixin transition($keyframe-span) {
+  transition-duration: $transition-duration * $keyframe-span * 0.5;
+  transition-timing-function: ease-out;
+}
+
+@mixin transition-delay($keyframe) {
+  transition-delay: $transition-duration * $keyframe * 0.5;
+}
+
+.button {
+  position: relative;
+
+  cursor: pointer;
+
+  &:hover {
+    .inlineBorders {
+      @include transition-delay(0);
+
+      rotate: 0 1 0 180deg;
+    }
+
+    .blockBorders {
+      @include transition-delay(1);
+
+      rotate: 1 0 0 180deg;
+    }
+  }
+}
+
+.contentWrapper {
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+  border: $border-width solid transparent;
+
+  color: var(--color-neutral-800);
+}
+
+.background,
+.borders {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.background {
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+}
+
+.borders {
+  @include transition(1);
+
+  z-index: -1;
+
+  display: grid;
+
+  pointer-events: none;
+  transition-property: rotate;
+
+  :first-child {
+    background-color: var(--color-blue-500);
+  }
+  :last-child {
+    background-color: var(--color-green-500);
+  }
+}
+
+.inlineBorders {
+  @extend .borders;
+  @include transition-delay(1);
+
+  grid-template-columns: $border-width 1fr $border-width;
+
+  width: 100%;
+  height: calc(100% + 4 * $border-width);
+  translate: 0 -2 * $border-width;
+  rotate: 0 1 0 0deg;
+}
+
+.blockBorders {
+  @extend .borders;
+  @include transition-delay(0);
+
+  grid-template-rows: $border-width 1fr $border-width;
+
+  height: 100%;
+  width: calc(100% + 4 * $border-width);
+  translate: -2 * $border-width 0;
+  rotate: 1 0 0 0deg;
+}

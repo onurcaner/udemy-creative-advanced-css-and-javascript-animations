@@ -13,6 +13,10 @@ import { Button10 } from '../../sections/buttons/Button10/Button10';
 import { Button11 } from '../../sections/buttons/Button11/Button11';
 import { Button12 } from '../../sections/buttons/Button12/Button12';
 import { Button13 } from '../../sections/buttons/Button13/Button13';
+import { Button14 } from '../../sections/buttons/Button14/Button14';
+import { Button15 } from '../../sections/buttons/Button15/Button15';
+import { Button16 } from '../../sections/buttons/Button16/Button16';
+import { Button17 } from '../../sections/buttons/Button17/Button17';
 
 import styles from './ButtonsPage.module.scss';
 
@@ -31,13 +35,17 @@ export function ButtonsPage(): JSX.Element {
     Button11,
     Button12,
     Button13,
+    Button14,
+    Button15,
+    Button16,
+    Button17,
   ];
 
   return (
     <ol className={styles.list}>
       {Buttons.map((Button, i) => (
         <li key={i}>
-          <Button>Button {i + 1}</Button>
+          <Button>{`Button ${(i + 1).toString()}`}</Button>
         </li>
       ))}
     </ol>

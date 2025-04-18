@@ -1,0 +1,116 @@
+$transition-duration: 1s;
+
+@mixin transition($keyframe-span) {
+  transition-duration: $transition-duration * $keyframe-span * 0.25;
+  transition-timing-function: ease-out;
+}
+
+@mixin transition-delay($keyframe) {
+  transition-delay: $transition-duration * $keyframe * 0.25;
+}
+
+.button {
+  position: relative;
+
+  border: 2px solid currentColor;
+  border-radius: 1px;
+  overflow: hidden;
+
+  border-color: var(--color-neutral-800);
+
+  cursor: pointer;
+
+  &:hover {
+    .contentWrapper {
+      color: var(--color-neutral-200);
+    }
+
+    .backgroundFragment {
+      translate: 0 0;
+    }
+    .backgroundFragment1 {
+      @include transition-delay(0);
+    }
+    .backgroundFragment2 {
+      @include transition-delay(1);
+    }
+    .backgroundFragment3 {
+      @include transition-delay(2);
+    }
+    .backgroundFragment4 {
+      @include transition-delay(3);
+    }
+  }
+}
+
+.contentWrapper {
+  @include transition(4);
+
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+
+  color: var(--color-neutral-800);
+
+  transition-property: color;
+}
+
+.backgroundWrapper {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: var(--color-neutral-200);
+}
+
+.backgroundFragment {
+  @include transition(1);
+
+  position: absolute;
+  z-index: 1;
+  top: 0;
+
+  height: 100%;
+  width: 25%;
+
+  background-color: var(--color-neutral-800);
+}
+
+.backgroundFragment1 {
+  @extend .backgroundFragment;
+  @include transition-delay(3);
+
+  left: 0%;
+
+  translate: 0 -100%;
+}
+.backgroundFragment2 {
+  @extend .backgroundFragment;
+  @include transition-delay(2);
+
+  left: 25%;
+
+  translate: 0 100%;
+}
+.backgroundFragment3 {
+  @extend .backgroundFragment;
+  @include transition-delay(1);
+
+  left: 50%;
+
+  translate: 0 -100%;
+}
+.backgroundFragment4 {
+  @extend .backgroundFragment;
+  @include transition-delay(0);
+
+  left: 75%;
+
+  translate: 0 100%;
+}
