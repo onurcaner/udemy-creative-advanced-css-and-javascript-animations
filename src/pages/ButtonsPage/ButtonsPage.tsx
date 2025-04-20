@@ -17,6 +17,10 @@ import { Button14 } from '../../sections/buttons/Button14/Button14';
 import { Button15 } from '../../sections/buttons/Button15/Button15';
 import { Button16 } from '../../sections/buttons/Button16/Button16';
 import { Button17 } from '../../sections/buttons/Button17/Button17';
+import { Button18 } from '../../sections/buttons/Button18/Button18';
+import { Button19 } from '../../sections/buttons/Button19/Button19';
+import { Button20 } from '../../sections/buttons/Button20/Button20';
+import { Button21 } from '../../sections/buttons/Button21/Button21';
 
 import styles from './ButtonsPage.module.scss';
 
@@ -39,6 +43,10 @@ export function ButtonsPage(): JSX.Element {
     Button15,
     Button16,
     Button17,
+    Button18,
+    Button19,
+    Button20,
+    Button21,
   ];
 
   return (

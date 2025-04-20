@@ -1,0 +1,114 @@
+@use 'sass:math';
+
+$border-width: 2px;
+$border-radius: 1px;
+
+@mixin transition() {
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+.button {
+  position: relative;
+
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  &:hover {
+    .contentWrapper {
+      color: var(--color-green-500);
+    }
+
+    .border {
+      translate: 0 0;
+    }
+  }
+}
+
+.contentWrapper {
+  @include transition();
+
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: math.div(1em, 16);
+
+  padding: 1rem 2rem;
+  border: $border-width solid transparent;
+
+  color: var(--color-neutral-200);
+}
+
+.background {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: var(--color-neutral-800);
+}
+
+.border {
+  @include transition();
+
+  position: absolute;
+  z-index: -1;
+
+  border-radius: $border-radius;
+
+  background-color: var(--color-green-500);
+
+  pointer-events: none;
+  transition-property: translate;
+}
+
+.borderTop {
+  @extend .border;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: $border-width;
+
+  translate: -100% 0;
+}
+.borderBottom {
+  @extend .border;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: $border-width;
+
+  translate: 100% 0;
+}
+.borderLeft {
+  @extend .border;
+
+  top: 0;
+  left: 0;
+
+  width: $border-width;
+  height: 100%;
+
+  translate: 0 100%;
+}
+.borderRight {
+  @extend .border;
+
+  top: 0;
+  right: 0;
+
+  width: $border-width;
+  height: 100%;
+
+  translate: 0 -100%;
+}

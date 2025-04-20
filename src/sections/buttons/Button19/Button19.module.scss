@@ -1,0 +1,76 @@
+$border-width: 2px;
+$border-radius: 1px;
+
+@mixin transition() {
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.button {
+  position: relative;
+
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  &:hover {
+    .contentWrapper {
+      color: var(--color-neutral-200);
+    }
+
+    .backgroundStick {
+      height: 200%;
+
+      rotate: 135deg;
+
+      background-color: var(--color-neutral-800);
+    }
+  }
+}
+
+.contentWrapper {
+  @include transition();
+
+  display: inline-block;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  padding: 1rem 2rem;
+  border: $border-width solid transparent;
+}
+
+.background {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  border: $border-width solid transparent;
+  border-radius: $border-radius;
+
+  background-color: var(--color-neutral-200);
+  border-color: var(--color-neutral-800);
+}
+
+.backgroundStick {
+  @include transition();
+
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+
+  width: 200%;
+  height: 25%;
+
+  translate: -50% -50%;
+  rotate: 45deg;
+
+  background-color: var(--color-neutral-200);
+
+  pointer-events: none;
+}
