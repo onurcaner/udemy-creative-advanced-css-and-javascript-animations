@@ -7,7 +7,7 @@ export function Button2({ children }: { children: ReactNode }): JSX.Element {
     <button className={styles.button}>
       <span className={styles.contentWrapper}>{children}</span>
 
-      <span className={styles.dynamicBackground} aria-hidden />
+      <span className={styles.movingBackground} aria-hidden />
       <span className={styles.staticBackground} aria-hidden />
     </button>
   );

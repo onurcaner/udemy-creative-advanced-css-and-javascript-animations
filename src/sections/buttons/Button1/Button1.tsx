@@ -7,8 +7,8 @@ export function Button1({ children }: { children: ReactNode }): JSX.Element {
     <button className={styles.button}>
       <span className={styles.contentWrapper}>{children}</span>
 
-      <span aria-invalid className={styles.dynamicBackgroundTopLeft} />
-      <span aria-invalid className={styles.dynamicBackgroundBottomRight} />
+      <span aria-invalid className={styles.rotatingBackgroundTopLeft} />
+      <span aria-invalid className={styles.rotatingBackgroundBottomRight} />
       <span aria-invalid className={styles.staticBackground} />
     </button>
   );

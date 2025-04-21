@@ -1,7 +1,4 @@
-@mixin grid-span-full() {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-}
+@use './Button1Settings' as settings;
 
 .button {
   position: relative;
@@ -12,58 +9,61 @@
   align-items: stretch;
   justify-items: stretch;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
-  border: 2px solid currentColor;
-  border-radius: 1px;
+  border: settings.$border-width solid currentColor;
+  border-radius: settings.$border-radius;
   overflow: hidden;
 
-  color: var(--color-neutral-800);
-  border-color: var(--color-neutral-800);
+  color: settings.$text-color;
+  border-color: settings.$border-color;
 
   cursor: pointer;
-
-  &:hover .dynamicBackground {
-    rotate: 0deg;
-  }
 }
 
 .contentWrapper {
-  @include grid-span-full();
+  grid-area: 1 / 1 / -1 / -1;
 
-  padding: 1rem 2rem;
+  padding: settings.$padding;
 }
 
-.dynamicBackground {
-  @include grid-span-full();
-
+.rotatingBackground {
   position: relative;
   z-index: -1;
+  grid-area: 1 / 1 / -1 / -1;
 
   rotate: 90deg;
 
-  opacity: 25%;
-  background-color: var(--color-neutral-400);
+  opacity: settings.$rotating-background-opacity;
 
-  transition: rotate 1s ease-in-out;
+  transition-property: rotate;
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
 }
-.dynamicBackgroundTopLeft {
-  @extend .dynamicBackground;
+.button:hover .rotatingBackground {
+  rotate: 0deg;
+}
+.rotatingBackgroundTopLeft {
+  @extend .rotatingBackground;
 
   transform-origin: top left;
+
+  background-color: settings.$rotating-background-color-1;
 }
-.dynamicBackgroundBottomRight {
-  @extend .dynamicBackground;
+.rotatingBackgroundBottomRight {
+  @extend .rotatingBackground;
 
   transform-origin: bottom right;
+
+  background-color: settings.$rotating-background-color-2;
 }
 
 .staticBackground {
-  @include grid-span-full();
-
   position: relative;
   z-index: -2;
+  grid-area: 1 / 1 / -1 / -1;
 
-  background-color: var(--color-neutral-100);
+  background-color: settings.$background-color;
 }
