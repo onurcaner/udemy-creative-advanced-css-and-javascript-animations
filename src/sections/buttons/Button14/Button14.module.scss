@@ -1,61 +1,42 @@
-$transition-duration: 1s;
+@use './Button14Settings' as settings;
 
 @mixin transition($keyframe-span) {
-  transition-duration: $transition-duration * $keyframe-span * 0.25;
-  transition-timing-function: ease-out;
+  transition-duration: settings.$transition-duration * $keyframe-span * 0.25;
+  transition-timing-function: settings.$transition-timing-function;
 }
 
-@mixin transition-delay($keyframe) {
-  transition-delay: $transition-duration * $keyframe * 0.25;
+@mixin transition-delay($keyframe-count) {
+  transition-delay: settings.$transition-duration * $keyframe-count * 0.25;
 }
 
 .button {
   position: relative;
 
-  border: 2px solid currentColor;
-  border-radius: 1px;
+  border: settings.$border-width solid currentColor;
+  border-radius: settings.$border-radius;
   overflow: hidden;
 
-  border-color: var(--color-neutral-800);
+  border-color: settings.$border-color;
 
   cursor: pointer;
-
-  &:hover {
-    .contentWrapper {
-      color: var(--color-neutral-200);
-    }
-
-    .backgroundFragment {
-      translate: 0 0;
-    }
-    .backgroundFragment1 {
-      @include transition-delay(0);
-    }
-    .backgroundFragment2 {
-      @include transition-delay(1);
-    }
-    .backgroundFragment3 {
-      @include transition-delay(2);
-    }
-    .backgroundFragment4 {
-      @include transition-delay(3);
-    }
-  }
 }
 
 .contentWrapper {
-  @include transition(4);
-
   display: inline-block;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
-  padding: 1rem 2rem;
+  padding: settings.$padding;
 
-  color: var(--color-neutral-800);
+  color: settings.$text-color;
 
+  @include transition(4);
   transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
 }
 
 .backgroundWrapper {
@@ -66,12 +47,10 @@ $transition-duration: 1s;
   bottom: 0;
   left: 0;
 
-  background-color: var(--color-neutral-200);
+  background-color: settings.$background-color;
 }
 
 .backgroundFragment {
-  @include transition(1);
-
   position: absolute;
   z-index: 1;
   top: 0;
@@ -79,38 +58,63 @@ $transition-duration: 1s;
   height: 100%;
   width: 25%;
 
-  background-color: var(--color-neutral-800);
+  background-color: settings.$background-color-on-hover;
+
+  @include transition(1);
+  transition-property: translate;
+}
+.button:hover .backgroundFragment {
+  translate: 0 0;
 }
 
 .backgroundFragment1 {
   @extend .backgroundFragment;
-  @include transition-delay(3);
 
   left: 0%;
 
   translate: 0 -100%;
+
+  @include transition-delay(3);
 }
 .backgroundFragment2 {
   @extend .backgroundFragment;
-  @include transition-delay(2);
 
   left: 25%;
 
   translate: 0 100%;
+
+  @include transition-delay(2);
 }
 .backgroundFragment3 {
   @extend .backgroundFragment;
-  @include transition-delay(1);
 
   left: 50%;
 
   translate: 0 -100%;
+
+  @include transition-delay(1);
 }
 .backgroundFragment4 {
   @extend .backgroundFragment;
-  @include transition-delay(0);
 
   left: 75%;
 
   translate: 0 100%;
+
+  @include transition-delay(0);
+}
+
+.button:hover {
+  .backgroundFragment1 {
+    @include transition-delay(0);
+  }
+  .backgroundFragment2 {
+    @include transition-delay(1);
+  }
+  .backgroundFragment3 {
+    @include transition-delay(2);
+  }
+  .backgroundFragment4 {
+    @include transition-delay(3);
+  }
 }

@@ -1,55 +1,58 @@
+@use './Button8Settings' as settings;
+
 .button {
+  position: relative;
+
   display: grid;
   align-content: center;
   justify-content: center;
   align-items: stretch;
   justify-items: stretch;
 
-  border: 2px solid currentColor;
-  border-radius: 1px;
+  border: settings.$border-width solid currentColor;
+  border-radius: settings.$border-radius;
   overflow: hidden;
 
   cursor: pointer;
-
-  &:hover {
-    .normalContentWrapper {
-      color: transparent;
-    }
-    .hoveredContentWrapper {
-      opacity: 1;
-      scale: 1;
-    }
-  }
 }
 
 .contentWrapper {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
+  grid-area: 1 / 1 / -1 / -1;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
-  padding: 1rem 2rem;
+  padding: settings.$padding;
 
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
-  transition-property: color, opacity, scale;
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+  transition-property: scale, color, opacity;
 }
+
 .normalContentWrapper {
   @extend .contentWrapper;
 
-  color: var(--color-neutral-800);
-  background-color: var(--color-neutral-200);
+  color: settings.$text-color;
+  background-color: settings.$background-color;
 }
+.button:hover .normalContentWrapper {
+  color: transparent;
+}
+
 .hoveredContentWrapper {
   @extend .contentWrapper;
 
   position: relative;
   z-index: 1;
 
-  scale: 5;
+  scale: 2;
 
-  color: var(--color-neutral-200);
-  background-color: var(--color-neutral-800);
+  color: settings.$text-color-on-hover;
+  background-color: settings.$background-color-on-hover;
   opacity: 0;
+}
+.button:hover .hoveredContentWrapper {
+  opacity: 1;
+  scale: 1;
 }

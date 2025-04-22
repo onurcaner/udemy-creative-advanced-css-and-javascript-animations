@@ -9,10 +9,10 @@ export function Button18({ children }: { children: ReactNode }): JSX.Element {
 
       <span className={styles.background} aria-hidden />
       <span aria-hidden>
-        <span className={styles.borderTop} />
-        <span className={styles.borderBottom} />
-        <span className={styles.borderLeft} />
-        <span className={styles.borderRight} />
+        <span className={styles.movingBorderTop} />
+        <span className={styles.movingBorderBottom} />
+        <span className={styles.movingBorderLeft} />
+        <span className={styles.movingBorderRight} />
       </span>
     </button>
   );

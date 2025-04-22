@@ -1,7 +1,7 @@
 $text-color: var(--color-neutral-800);
 $text-color-on-hover: var(--color-neutral-100);
 $background-color: var(--color-neutral-100);
-$moving-background-color: var(--color-neutral-800);
+$background-color-on-hover: var(--color-neutral-800);
 $border-color: var(--color-neutral-800);
 
 $font-size: 1.25rem;
@@ -10,6 +10,10 @@ $font-weight: 500;
 $padding: 1.25rem 2rem;
 $border-width: 2px;
 $border-radius: 1px;
+
+$scale-first-letter-on-hover: 2;
+$translate-first-letter-on-hover: -0.5ch -0.5ch;
+$rotate-on-hover: 15deg;
 
 $transition-duration: 1s;
 $transition-timing-function: var(--ease-in-out);

@@ -9,7 +9,7 @@ export function Button7({ children }: { children: ReactNode }): JSX.Element {
       <span className={styles.secondContentWrapper} aria-hidden>
         {children}
       </span>
-      <span className={styles.background} aria-hidden />
+      <span className={styles.staticBackground} aria-hidden />
     </button>
   );
 }

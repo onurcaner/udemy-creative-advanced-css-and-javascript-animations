@@ -1,74 +1,45 @@
+@use './Button12Settings' as settings;
+
 @mixin transition() {
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
 }
 
 .button {
-  @include transition();
-
   position: relative;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
   padding: 0;
-  margin: 1rem 2rem;
-  border-radius: 10rem;
+  margin: settings.$padding;
+  border-radius: settings.$border-radius;
 
-  color: var(--color-neutral-800);
-  background-color: transparent;
+  color: settings.$text-color;
+  background-color: settings.$background-color;
 
   cursor: pointer;
+  @include transition();
   transition-property: margin, padding, color, background-color;
 
   &:hover {
-    margin: 0 0;
-    padding: 1rem 2rem;
+    margin: 0;
+    padding: settings.$padding;
 
-    color: var(--color-neutral-200);
-    background-color: var(--color-neutral-800);
-  }
-
-  &:hover {
-    .disk {
-      left: 50%;
-
-      opacity: 1;
-    }
-
-    .disk3,
-    .disk4 {
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .disk2,
-    .disk5 {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-
-    .disk1,
-    .disk6 {
-      width: 1rem;
-      height: 1rem;
-    }
+    color: settings.$text-color-on-hover;
+    background-color: settings.$background-color-on-hover;
   }
 }
 
 .contentWrapper {
-  @include transition();
-
   position: relative;
   z-index: 1;
 }
 
 .disk {
-  @include transition();
-
   position: absolute;
   top: 50%;
-  left: 50%;
 
   width: 0rem;
   height: 0rem;
@@ -76,10 +47,11 @@
 
   translate: -50% -50%;
 
-  background-color: var(--color-neutral-800);
+  background-color: settings.$disk-color;
   opacity: 0;
 
   pointer-events: none;
+  @include transition();
   transition-property: left, width, height, opacity;
 }
 
@@ -112,4 +84,30 @@
   @extend .disk;
 
   left: 300%;
+}
+
+.button:hover {
+  .disk {
+    left: 50%;
+
+    opacity: 1;
+  }
+
+  .disk3,
+  .disk4 {
+    width: settings.$disk-size-big;
+    height: settings.$disk-size-big;
+  }
+
+  .disk2,
+  .disk5 {
+    width: settings.$disk-size-medium;
+    height: settings.$disk-size-medium;
+  }
+
+  .disk1,
+  .disk6 {
+    width: settings.$disk-size-small;
+    height: settings.$disk-size-small;
+  }
 }

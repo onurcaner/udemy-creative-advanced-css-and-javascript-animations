@@ -7,12 +7,14 @@ export function Button12({ children }: { children: ReactNode }): JSX.Element {
     <button className={styles.button}>
       <span className={styles.contentWrapper}>{children}</span>
 
-      <span className={styles.disk1} aria-hidden />
-      <span className={styles.disk2} aria-hidden />
-      <span className={styles.disk3} aria-hidden />
-      <span className={styles.disk4} aria-hidden />
-      <span className={styles.disk5} aria-hidden />
-      <span className={styles.disk6} aria-hidden />
+      <span aria-hidden>
+        <span className={styles.disk1} />
+        <span className={styles.disk2} />
+        <span className={styles.disk3} />
+        <span className={styles.disk4} />
+        <span className={styles.disk5} />
+        <span className={styles.disk6} />
+      </span>
     </button>
   );
 }

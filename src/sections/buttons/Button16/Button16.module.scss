@@ -1,10 +1,8 @@
-$border-width: 2px;
-$border-radius: 1px;
-$border-length-offset: 1rem;
+@use './Button16Settings' as settings;
 
 @mixin transition() {
-  transition-duration: 1s;
-  transition-timing-function: ease-out;
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
 }
 
 .button {
@@ -12,108 +10,103 @@ $border-length-offset: 1rem;
 
   cursor: pointer;
 
-  &:hover {
-    .contentWrapper {
-      color: var(--color-neutral-200);
-    }
+  border: settings.$border-width solid currentColor;
+  border-radius: settings.$border-radius;
 
-    .background {
-      background-color: var(--color-neutral-800);
-    }
-
-    .borderTop,
-    .borderBottom {
-      width: calc(100% - $border-length-offset);
-    }
-
-    .borderLeft,
-    .borderRight {
-      height: calc(100% - $border-length-offset);
-    }
-  }
+  border-color: settings.$border-color;
 }
 
 .contentWrapper {
-  @include transition();
-
   display: inline-block;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
-  padding: 1rem 2rem;
-  border: $border-width solid currentColor;
-  border-radius: $border-radius;
+  padding: settings.$padding;
 
-  color: var(--color-neutral-800);
-  border-color: var(--color-neutral-800);
+  color: settings.$text-color;
 
+  @include transition();
   transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
 }
 
 .background {
-  @include transition();
-
   position: absolute;
   z-index: -1;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
 
-  width: 100%;
-  height: 100%;
-  border-radius: $border-radius;
+  background-color: settings.$background-color;
 
-  background-color: var(--color-neutral-200);
-
+  @include transition();
   transition-property: background-color;
 }
+.button:hover .background {
+  background-color: settings.$background-color-on-hover;
+}
 
-.borders {
-  @include transition();
-
+.border {
   position: absolute;
 
-  border-radius: $border-radius;
+  border-radius: settings.$border-radius;
 
-  background-color: var(--color-neutral-800);
+  background-color: settings.$border-color;
 
   pointer-events: none;
+  @include transition();
   transition-property: width, height;
 }
 
 .borderTop {
-  @extend .borders;
+  @extend .border;
 
-  top: -2 * $border-width;
-  left: -2 * $border-width;
+  top: -3 * settings.$border-width;
+  left: -3 * settings.$border-width;
 
-  width: $border-length-offset;
-  height: $border-width;
+  width: settings.$border-length-offset;
+  height: settings.$border-width;
 }
 .borderBottom {
-  @extend .borders;
+  @extend .border;
 
-  bottom: -2 * $border-width;
-  right: -2 * $border-width;
+  bottom: -3 * settings.$border-width;
+  right: -3 * settings.$border-width;
 
-  width: $border-length-offset;
-  height: $border-width;
+  width: settings.$border-length-offset;
+  height: settings.$border-width;
 }
 .borderLeft {
-  @extend .borders;
+  @extend .border;
 
-  top: -2 * $border-width;
-  left: -2 * $border-width;
+  top: -3 * settings.$border-width;
+  left: -3 * settings.$border-width;
 
-  width: $border-width;
-  height: $border-length-offset;
+  width: settings.$border-width;
+  height: settings.$border-length-offset;
 }
 .borderRight {
-  @extend .borders;
+  @extend .border;
 
-  bottom: -2 * $border-width;
-  right: -2 * $border-width;
+  bottom: -3 * settings.$border-width;
+  right: -3 * settings.$border-width;
 
-  width: $border-width;
-  height: $border-length-offset;
+  width: settings.$border-width;
+  height: settings.$border-length-offset;
+}
+.button:hover {
+  .borderTop,
+  .borderBottom {
+    width: calc(100% - settings.$border-length-offset);
+  }
+
+  .borderLeft,
+  .borderRight {
+    height: calc(100% - settings.$border-length-offset);
+  }
 }

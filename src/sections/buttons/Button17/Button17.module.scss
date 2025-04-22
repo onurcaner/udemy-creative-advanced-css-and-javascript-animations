@@ -1,58 +1,53 @@
+@use './Button17Settings' as settings;
+
 @mixin transition() {
-  transition-duration: 1s;
-  transition-timing-function: ease-out;
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
 }
 
 .button {
   position: relative;
 
-  &:hover {
-    .contentWrapper {
-      color: var(--color-neutral-200);
-    }
+  border: settings.$border-width solid currentColor;
+  border-radius: settings.$border-radius;
 
-    .contentWrapper :first-child {
-      scale: 2;
-      translate: -0.25em -0.25em;
-      rotate: 375deg;
-    }
+  border-color: settings.$border-color;
 
-    .hoverBackground {
-      rotate: 15deg;
-
-      opacity: 1;
-    }
-  }
+  cursor: pointer;
 }
 
 .contentWrapper {
-  @include transition();
-
   display: inline-block;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
-  padding: 1rem 2rem;
-  border: 2px solid currentColor;
-  border-radius: 1px;
+  padding: settings.$padding;
 
-  color: var(--color-neutral-800);
-  border-color: var(--color-neutral-800);
+  color: settings.$text-color;
 
+  @include transition();
   transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
 }
 
 .contentWrapper :first-child {
-  @include transition();
-
   display: inline-block;
-
-  transition-property: scale, translate, rotate;
 
   scale: 1;
   translate: 0 0;
   rotate: 0deg;
+
+  @include transition();
+  transition-property: scale, translate, rotate;
+}
+.button:hover .contentWrapper :first-child {
+  scale: settings.$scale-first-letter-on-hover;
+  translate: settings.$translate-first-letter-on-hover;
+  rotate: 360deg;
 }
 
 .background {
@@ -61,31 +56,33 @@
   bottom: 0;
   left: 0;
   right: 0;
+
+  border-radius: settings.$border-radius;
 }
 
 .normalBackground {
   @extend .background;
-  @include transition();
 
   z-index: -2;
 
-  background-color: var(--color-neutral-200);
-
-  transition-property: rotate, background-color;
+  background-color: settings.$background-color;
 }
 
 .hoverBackground {
   @extend .background;
-  @include transition();
 
   z-index: -1;
 
-  border-radius: 1px;
-
   rotate: 0deg;
 
-  background-color: var(--color-neutral-800);
+  background-color: settings.$background-color-on-hover;
   opacity: 0;
 
+  @include transition();
   transition-property: rotate, opacity;
+}
+.button:hover .hoverBackground {
+  rotate: settings.$rotate-on-hover;
+
+  opacity: 1;
 }

@@ -1,113 +1,110 @@
-@use 'sass:math';
-
-$border-width: 2px;
-$border-radius: 1px;
+@use './Button18Settings' as settings;
 
 @mixin transition() {
-  transition-duration: 1s;
-  transition-timing-function: ease-out;
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
 }
 
 .button {
   position: relative;
 
-  border-radius: $border-radius;
+  border-radius: settings.$border-radius;
   overflow: hidden;
 
   cursor: pointer;
-
-  &:hover {
-    .contentWrapper {
-      color: var(--color-green-500);
-    }
-
-    .border {
-      translate: 0 0;
-    }
-  }
 }
 
 .contentWrapper {
-  @include transition();
-
   display: inline-block;
 
-  font-size: 1.25rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: math.div(1em, 16);
+  font-size: settings.$font-size;
+  line-height: 1;
+  letter-spacing: settings.$letter-spacing;
+  font-weight: settings.$font-weight;
+  text-transform: settings.$text-transform;
 
-  padding: 1rem 2rem;
-  border: $border-width solid transparent;
+  padding: settings.$padding;
+  border: settings.$border-width solid transparent;
 
-  color: var(--color-neutral-200);
+  color: settings.$text-color;
+  border-color: settings.$border-color;
+
+  @include transition();
+  transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
 }
 
 .background {
   position: absolute;
-  z-index: -2;
+  z-index: -1;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 
-  background-color: var(--color-neutral-800);
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$background-color;
 }
 
-.border {
-  @include transition();
-
+.movingBorder {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
 
-  border-radius: $border-radius;
+  border-radius: settings.$border-radius;
 
-  background-color: var(--color-green-500);
+  background-color: settings.$border-color-on-hover;
 
   pointer-events: none;
+  @include transition();
   transition-property: translate;
 }
+.button:hover .movingBorder {
+  translate: 0 0;
+}
 
-.borderTop {
-  @extend .border;
+.movingBorderTop {
+  @extend .movingBorder;
 
   top: 0;
   left: 0;
 
   width: 100%;
-  height: $border-width;
+  height: settings.$border-width;
 
   translate: -100% 0;
 }
-.borderBottom {
-  @extend .border;
+.movingBorderBottom {
+  @extend .movingBorder;
 
   bottom: 0;
   left: 0;
 
   width: 100%;
-  height: $border-width;
+  height: settings.$border-width;
 
   translate: 100% 0;
 }
-.borderLeft {
-  @extend .border;
+.movingBorderLeft {
+  @extend .movingBorder;
 
   top: 0;
   left: 0;
 
-  width: $border-width;
+  width: settings.$border-width;
   height: 100%;
 
   translate: 0 100%;
 }
-.borderRight {
-  @extend .border;
+.movingBorderRight {
+  @extend .movingBorder;
 
   top: 0;
   right: 0;
 
-  width: $border-width;
+  width: settings.$border-width;
   height: 100%;
 
   translate: 0 -100%;

@@ -1,61 +1,75 @@
+@use './Button13Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
 .button {
-  perspective: 100rem;
+  perspective: settings.$perspective;
+
   position: relative;
 
   cursor: pointer;
-
-  &:hover {
-    .background1 {
-      rotate: 1 0 0 60deg;
-    }
-    .background2 {
-      rotate: 1 0 0 -60deg;
-    }
-  }
 }
 
 .contentWrapper {
   display: inline-block;
 
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
 
-  padding: 1rem 2rem;
+  padding: settings.$padding;
 
-  color: var(--color-neutral-800);
+  color: settings.$text-color;
+
+  @include transition();
+  transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
 }
 
 .background {
   position: absolute;
   z-index: -1;
 
-  width: calc(100% - 0.5rem);
-  height: calc(100% - 0.5rem);
+  width: calc(100% - settings.$background-offset);
+  height: calc(100% - settings.$background-offset);
 
   rotate: 1 0 0 0deg;
 
   mix-blend-mode: screen;
 
-  transition: rotate 1s ease-in-out;
+  @include transition();
+  transition-property: rotate;
 }
 
 .background1 {
   @extend .background;
 
-  bottom: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  left: 0;
 
-  transform-origin: 50% 0% -0.5rem;
+  transform-origin: 50% 0% (settings.$background-offset * -1);
 
-  background-color: var(--color-blue-500);
+  background-color: settings.$background-color-1;
 }
+.button:hover .background1 {
+  rotate: 1 0 0 (settings.$background-rotation-on-hover * 1);
+}
+
 .background2 {
   @extend .background;
 
-  top: 0.5rem;
-  left: 0.5rem;
+  bottom: 0;
+  right: 0;
 
-  transform-origin: 50% 100% -0.5rem;
+  transform-origin: 50% 100% (settings.$background-offset * -1);
 
-  background-color: var(--color-green-500);
+  background-color: settings.$background-color-2;
+}
+.button:hover .background2 {
+  rotate: 1 0 0 (settings.$background-rotation-on-hover * -1);
 }
