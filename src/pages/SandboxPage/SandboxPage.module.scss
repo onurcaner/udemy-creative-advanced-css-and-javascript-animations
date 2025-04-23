@@ -5,5 +5,5 @@
   align-items: stretch;
   justify-items: stretch;
 
-  min-height: 40rem;
+  min-height: calc(100dvh - 4.5rem);
 }

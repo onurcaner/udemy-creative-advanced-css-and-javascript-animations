@@ -13,13 +13,13 @@ interface RouteAttributes {
 const _routes: RouteAttributes[] = [
   {
     name: RouteNames.Buttons,
-    label: 'Buttons',
-    path: '/buttons',
+    label: 'Creative Buttons',
+    path: '/creative-buttons',
   },
   {
     name: RouteNames.Images,
-    label: 'Images',
-    path: '/images',
+    label: 'Creative Images',
+    path: '/creative-images',
   },
   {
     name: RouteNames.Sandbox,

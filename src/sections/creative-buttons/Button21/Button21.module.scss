@@ -1,0 +1,89 @@
+@use './Button21Settings' as settings;
+
+$border-radius: 50rem;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.button {
+  @include transition();
+
+  position: relative;
+
+  border-radius: settings.$border-radius;
+
+  box-shadow: settings.$box-shadow;
+
+  cursor: pointer;
+  transition-property: box-shadow;
+
+  &:hover {
+    box-shadow: settings.$box-shadow-on-hover;
+  }
+}
+
+.contentWrapper {
+  display: inline-block;
+
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
+  letter-spacing: settings.$letter-spacing;
+  text-transform: settings.$text-transform;
+
+  padding: settings.$padding;
+
+  color: settings.$text-color;
+
+  @include transition();
+  transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
+}
+
+.background {
+  position: absolute;
+
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$background-color;
+}
+
+.normalBackground {
+  @extend .background;
+
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.poppingBackground {
+  @extend .background;
+
+  z-index: -2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: settings.$popping-background-color;
+  opacity: 1;
+
+  pointer-events: none;
+  @include transition();
+  transition-property: top, bottom, left, right, background-color, opacity;
+}
+.button:hover .poppingBackground {
+  top: -1 * settings.$popping-background-offset;
+  left: -1 * settings.$popping-background-offset;
+  bottom: -1 * settings.$popping-background-offset;
+  right: -1 * settings.$popping-background-offset;
+
+  background-color: settings.$popping-background-color-on-hover;
+  opacity: 0;
+}

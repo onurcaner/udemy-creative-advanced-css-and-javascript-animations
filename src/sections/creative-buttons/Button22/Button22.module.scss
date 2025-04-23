@@ -1,0 +1,69 @@
+@use './Button22Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.button {
+  position: relative;
+
+  border: settings.$border-width solid currentColor;
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+
+  border-color: settings.$border-color;
+
+  cursor: pointer;
+}
+
+.contentWrapper {
+  display: inline-block;
+
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
+
+  padding: settings.$padding-block settings.$padding-inline;
+
+  color: settings.$text-color;
+
+  @include transition();
+  transition-property: color;
+}
+.button:hover .contentWrapper {
+  color: settings.$text-color-on-hover;
+}
+
+.normalBackground {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: settings.$background-color;
+}
+
+.movingBackground {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+
+  width: 0;
+  aspect-ratio: 1;
+  border-radius: settings.$border-radius;
+
+  translate: -50% -50%;
+  rotate: 45deg;
+
+  background-color: settings.$background-color-on-hover;
+
+  @include transition();
+  transition-property: width;
+}
+.button:hover .movingBackground {
+  width: 100%;
+}

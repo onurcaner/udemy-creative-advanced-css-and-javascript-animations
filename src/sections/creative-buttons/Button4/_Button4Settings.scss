@@ -1,0 +1,20 @@
+$text-color: var(--color-sky-100);
+$text-color-on-hover: var(--color-green-100);
+$background-color: var(--color-neutral-800);
+$border-color: var(--color-sky-500);
+$border-color-on-hover: var(--color-green-500);
+
+$font-size: 1.25rem;
+$font-weight: 500;
+$font-weight-on-hover: 800;
+$letter-spacing: 0;
+$letter-spacing-on-hover: 0.125em;
+$text-transform: uppercase;
+
+$padding: 1.25rem 2rem;
+$border-width: 2px;
+$border-width-on-hover: 1.25rem * 0.25;
+$border-radius: 100rem;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);

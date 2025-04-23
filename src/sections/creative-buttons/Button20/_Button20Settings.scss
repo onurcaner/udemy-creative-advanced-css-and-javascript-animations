@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+$text-color: var(--color-neutral-50);
+$background-color-1: var(--color-sky-700);
+$background-color-2: var(--color-green-700);
+
+$font-size: 1.25rem;
+$font-weight: 500;
+$letter-spacing: math.div(1em, 16);
+$text-transform: uppercase;
+
+$padding: 1.25rem 2rem;
+$border-radius: 1px;
+
+$background-offset: 0.25rem;
+$skewing-angle: 45deg;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-out-back);

@@ -1,0 +1,35 @@
+@use 'sass:math';
+
+@function box-shadow-glow($glow-color) {
+  @return 0 0 1rem $glow-color;
+}
+
+$text-color: var(--color-sky-900);
+$text-color-on-hover: var(--color-green-900);
+$background-color: var(--color-neutral-100);
+$background-opacity: 10%;
+$background-fragment-color: var(--color-sky-300);
+$background-fragment-opacity: 50%;
+$glow-color: var(--color-sky-300);
+$glow-color-on-hover: var(--color-green-300);
+$blur: 0.25rem;
+$border-color: var(--color-neutral-800);
+$border-opacity: 12.5%;
+
+$font-size: 1.25rem;
+$font-weight: 500;
+$letter-spacing: math.div(1em, 16);
+$text-transform: uppercase;
+
+$padding-block: 1.25rem;
+$padding-inline: 2rem;
+$border-width: 1px;
+$border-radius: 100rem;
+
+$glowing-stick-width: 4rem;
+$glowing-stick-height: 0.5rem;
+$glowing-stick-box-shadow: box-shadow-glow($glow-color);
+$glowing-stick-box-shadow-on-hover: box-shadow-glow($glow-color-on-hover);
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);

@@ -1,0 +1,26 @@
+@use 'sass:color';
+@use 'sass:math';
+
+$text-color: var(--color-sky-100);
+$text-color-on-hover: var(--color-green-100);
+$background-color: var(--color-neutral-800);
+$popping-background-color: var(--color-sky-500);
+$popping-background-color-on-hover: var(--color-green-500);
+$shadow-color: var(--color-sky-500);
+$shadow-color-on-hover: var(--color-green-500);
+
+$font-size: 1.25rem;
+$font-weight: 500;
+$letter-spacing: math.div(1em, 16);
+$text-transform: uppercase;
+
+$padding: 1.25rem 2rem;
+$border-radius: 20rem;
+
+$box-shadow: 0 0 1rem $shadow-color;
+$box-shadow-on-hover: 0 0 2rem $shadow-color-on-hover;
+
+$popping-background-offset: 2rem;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-out);

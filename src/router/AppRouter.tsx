@@ -2,8 +2,8 @@ import { JSX } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
 import { RootLayout } from '../layouts/RootLayout';
-import { ButtonsPage } from '../pages/ButtonsPage/ButtonsPage';
-import { ImagesPage } from '../pages/ImagesPage';
+import { CreativeButtonsPage } from '../pages/CreativeButtonsPage/CreativeButtonsPage';
+import { CreativeImagesPage } from '../pages/CreativeImagesPage/CreativeImagesPage';
 import { SandboxPage } from '../pages/SandboxPage/SandboxPage';
 
 import { RouteNames, routes } from './routes';
@@ -23,11 +23,11 @@ export function AppRouter(): JSX.Element {
           />
           <Route
             path={routes.get(RouteNames.Buttons).path}
-            element={<ButtonsPage />}
+            element={<CreativeButtonsPage />}
           />
           <Route
             path={routes.get(RouteNames.Images).path}
-            element={<ImagesPage />}
+            element={<CreativeImagesPage />}
           />
         </Route>
       </Routes>
