@@ -1,0 +1,98 @@
+@use './ImageEffect2Settings' as settings;
+
+@mixin position-absolute-full-span() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.imageEffect {
+  position: relative;
+
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 2;
+
+  padding: settings.$padding;
+
+  translate: settings.$translate-from;
+
+  @include transition();
+  transition-property: translate;
+}
+.imageEffect:hover .contentWrapper {
+  translate: 0 0;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: settings.$title-line-height;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  margin-bottom: settings.$title-margin-bottom;
+
+  color: settings.$title-color;
+}
+
+.paragraph {
+  font-size: settings.$paragraph-font-size;
+  line-height: settings.$paragraph-line-height;
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+
+  color: settings.$paragraph-color;
+}
+
+.backdrop {
+  @include position-absolute-full-span();
+  z-index: 1;
+
+  translate: settings.$translate-from;
+
+  background-color: settings.$backdrop-color;
+  opacity: settings.$backdrop-opacity-on-hover;
+
+  @include transition();
+  transition-property: translate;
+}
+.imageEffect:hover .backdrop {
+  translate: 0 0;
+}
+
+.imageWrapper {
+  @include position-absolute-full-span();
+}
+
+.image {
+  display: block;
+  object-position: settings.$image-object-position;
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+
+  scale: 1;
+  rotate: 0deg;
+
+  background-color: settings.$image-background-color;
+
+  @include transition();
+  transition-property: scale, rotate;
+}
+.imageEffect:hover .image {
+  scale: settings.$image-scaling-factor-on-hover;
+  rotate: settings.$image-rotation-angle-on-hover;
+}

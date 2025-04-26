@@ -1,0 +1,76 @@
+@use './ImageEffect3Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.imageEffect {
+  position: relative;
+
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  padding: settings.$padding;
+
+  translate: settings.$translate-x-from settings.$translate-y-from;
+
+  background-color: settings.$background-color;
+
+  @include transition();
+  transition-property: translate;
+}
+.imageEffect:hover .contentWrapper {
+  translate: 0 0;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: settings.$title-line-height;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  margin-bottom: settings.$title-margin-bottom;
+
+  color: settings.$title-color;
+}
+
+.paragraph {
+  font-size: settings.$paragraph-font-size;
+  line-height: settings.$paragraph-line-height;
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+
+  color: settings.$paragraph-color;
+}
+
+.imageWrapper {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.image {
+  display: block;
+  object-position: settings.$image-object-position;
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+
+  translate: 0 0;
+
+  background-color: settings.$image-background-color;
+
+  @include transition();
+  transition-property: translate;
+}
+.imageEffect:hover .image {
+  translate: (-1 * settings.$translate-x-from) (-1 * settings.$translate-y-from);
+}

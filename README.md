@@ -6,4 +6,5 @@ Instructor: [Ahmed Sadek](https://www.udemy.com/user/ahmed-el-sayed-sadek/)
 
 Offered at: [Udemy](https://www.udemy.com/)
 
-Notes: TypeScript is used instead of JavaScript
+Notes: TypeScript, React, Tailwind's Preflight styles, SASS, and CSS Modules are
+used instead of plain HTML and CSS.
