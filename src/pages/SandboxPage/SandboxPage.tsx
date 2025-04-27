@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { ImageEffect3 } from '../../sections/creative-image-effects/ImageEffect3/ImageEffect3';
+import { ImageEffect4 } from '../../sections/creative-image-effects/ImageEffect4/ImageEffect4';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 
 import styles from './SandboxPage.module.scss';
@@ -20,7 +20,7 @@ export function SandboxPage(): JSX.Element {
       <PageTitle>Sandbox</PageTitle>
 
       <div className={styles.sandboxWrapper}>
-        <ImageEffect3
+        <ImageEffect4
           imageUrl={imageUrl}
           imageAlt={imageAlt}
           title={title}

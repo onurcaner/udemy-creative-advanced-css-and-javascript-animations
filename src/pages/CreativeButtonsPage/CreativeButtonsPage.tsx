@@ -1,6 +1,7 @@
 import { JSX } from 'react';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
+import { useAdjustableGridContext } from '../../contexts/adjustable-grid/useAdjustableGridContext';
 import { Button1 } from '../../sections/creative-buttons/Button1/Button1';
 import { Button2 } from '../../sections/creative-buttons/Button2/Button2';
 import { Button3 } from '../../sections/creative-buttons/Button3/Button3';
@@ -25,10 +26,13 @@ import { Button21 } from '../../sections/creative-buttons/Button21/Button21';
 import { Button22 } from '../../sections/creative-buttons/Button22/Button22';
 import { Button23 } from '../../sections/creative-buttons/Button23/Button23';
 import { Button24 } from '../../sections/creative-buttons/Button24/Button24';
+import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
 import styles from './CreativeButtonsPage.module.scss';
 
 export function CreativeButtonsPage(): JSX.Element {
+  const { gridClassName } = useAdjustableGridContext();
+
   const Buttons = [
     Button1,
     Button2,
@@ -60,7 +64,7 @@ export function CreativeButtonsPage(): JSX.Element {
     <>
       <PageTitle>Creative Buttons</PageTitle>
 
-      <ol className={styles.list}>
+      <ol className={joinCssModuleStyles(styles.list, gridClassName)}>
         {Buttons.map((Button, i) => (
           <li key={i}>
             <Button>{`Button ${(i + 1).toString()}`}</Button>

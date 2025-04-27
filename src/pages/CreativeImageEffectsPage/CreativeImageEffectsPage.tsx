@@ -1,21 +1,26 @@
 import { JSX } from 'react';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
+import { useAdjustableGridContext } from '../../contexts/adjustable-grid/useAdjustableGridContext';
 import { ImageEffect1 } from '../../sections/creative-image-effects/ImageEffect1/ImageEffect1';
 import { ImageEffect2 } from '../../sections/creative-image-effects/ImageEffect2/ImageEffect2';
 import { ImageEffect3 } from '../../sections/creative-image-effects/ImageEffect3/ImageEffect3';
+import { ImageEffect4 } from '../../sections/creative-image-effects/ImageEffect4/ImageEffect4';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
+import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
 import styles from './CreativeImageEffectsPage.module.scss';
 
 export function CreativeImageEffectsPage(): JSX.Element {
-  const ImageEffects = [ImageEffect1, ImageEffect2, ImageEffect3];
+  const { gridClassName } = useAdjustableGridContext();
+
+  const ImageEffects = [ImageEffect1, ImageEffect2, ImageEffect3, ImageEffect4];
 
   return (
     <>
       <PageTitle>Creative Images</PageTitle>
 
-      <ol className={styles.list}>
+      <ol className={joinCssModuleStyles(styles.list, gridClassName)}>
         {ImageEffects.map((ImageEffect, i) => (
           <li key={i}>
             <ImageEffect

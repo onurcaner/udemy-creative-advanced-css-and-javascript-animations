@@ -1,0 +1,93 @@
+@use './ImageEffect4Settings' as settings;
+
+@function calculate-height($height-scale-factor) {
+  @return (
+    (settings.$font-size + 2 * settings.$padding-block) * $height-scale-factor
+  );
+}
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.imageEffect {
+  position: relative;
+
+  min-height: 100%;
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+}
+
+.text {
+  display: block;
+
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
+  text-align: center;
+
+  padding: settings.$padding-block settings.$padding-inline;
+}
+
+.caption {
+  @extend .text;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  translate: 0 calculate-height(1);
+
+  color: settings.$text-color;
+  background-color: settings.$background-color;
+
+  @include transition();
+  transition-property: translate;
+}
+.imageEffect:hover .caption {
+  translate: 0 0;
+}
+
+.hiddenCaption {
+  @extend .text;
+
+  position: relative;
+  z-index: -1;
+
+  height: calculate-height(settings.$image-min-height-factor);
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  min-height: calculate-height(settings.$image-min-height-factor);
+}
+
+.image {
+  display: block;
+  object-position: center;
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+
+  translate: 0 0;
+
+  background-color: settings.$image-background-color;
+
+  @include transition();
+  transition-property: translate;
+}
+.imageEffect:hover .image {
+  translate: 0 calculate-height(-1);
+}

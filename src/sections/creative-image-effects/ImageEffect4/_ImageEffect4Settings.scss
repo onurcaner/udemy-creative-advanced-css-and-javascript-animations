@@ -1,0 +1,16 @@
+$text-color: var(--color-neutral-200);
+$background-color: var(--color-neutral-700);
+$image-background-color: var(--color-neutral-300);
+
+$font-size: 1.25rem;
+$font-weight: 600;
+
+$image-min-height-factor: 4; // NUMBER * (font-size + 2 * padding-block)
+$padding-block: 1rem;
+$padding-inline: 2rem;
+$border-radius: 1px;
+
+$image-object-position: center;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);

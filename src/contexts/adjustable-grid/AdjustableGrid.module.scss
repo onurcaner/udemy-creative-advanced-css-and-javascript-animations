@@ -1,0 +1,30 @@
+.displayGrid {
+  display: grid;
+}
+
+.templateColumns2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.templateColumns3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.templateColumns4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.templateColumns6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+.alignItemsStretch {
+  align-items: stretch;
+}
+
+.justifyItemsCenter {
+  justify-items: center;
+}
+.justifyItemsStretch {
+  justify-items: stretch;
+}
