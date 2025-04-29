@@ -2,6 +2,9 @@
   display: grid;
 }
 
+.templateColumns1 {
+  grid-template-columns: repeat(1, 1fr);
+}
 .templateColumns2 {
   grid-template-columns: repeat(2, 1fr);
 }

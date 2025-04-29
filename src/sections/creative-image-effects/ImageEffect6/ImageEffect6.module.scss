@@ -1,0 +1,36 @@
+@use './ImageEffect6Settings' as settings;
+
+.imageEffect {
+  position: relative;
+  z-index: 0;
+
+  height: 100%;
+  width: 100%;
+  border: settings.$border-thickness solid transparent;
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+
+  border-color: settings.$border-color;
+}
+
+.image {
+  display: block;
+  object-position: settings.$object-position;
+  object-fit: cover;
+
+  height: 100%;
+  width: 100%;
+
+  scale: 1;
+  rotate: 0deg;
+
+  background-color: settings.$image-background-color;
+
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+  transition-property: scale, rotate;
+}
+.imageEffect:hover .image {
+  scale: settings.$scale-factor-on-hover;
+  rotate: settings.$rotate-angle-on-hover;
+}

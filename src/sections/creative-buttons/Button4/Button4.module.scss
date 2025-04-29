@@ -7,6 +7,7 @@
 
 .button {
   position: relative;
+  z-index: 0;
 
   display: grid;
   align-content: center;
@@ -14,14 +15,12 @@
   align-items: stretch;
   justify-items: stretch;
 
-  border-radius: settings.$border-radius;
-
-  background-color: settings.$background-color;
-
   cursor: pointer;
 }
 
 .contentWrapper {
+  position: relative;
+  z-index: 0;
   grid-area: 1 / 1 / -1 / -1;
 
   font-size: settings.$font-size;
@@ -31,8 +30,10 @@
   letter-spacing: settings.$letter-spacing;
 
   padding: settings.$padding;
+  border-radius: settings.$border-radius;
 
   color: settings.$text-color;
+  background-color: settings.$background-color;
 
   @include transition();
   transition-property: font-weight, letter-spacing, color;
@@ -46,7 +47,7 @@
 
 .borderBackground {
   position: relative;
-  z-index: -1;
+  z-index: -100;
   grid-area: 1 / 1 / -1 / -1;
 
   width: calc(100% + (settings.$border-width * 2));

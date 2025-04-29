@@ -1,0 +1,177 @@
+@use './ImageEffect7Settings' as settings;
+
+@mixin transition($frame-duration) {
+  transition-duration: $frame-duration * settings.$transition-duration * 0.2;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+@mixin transition-delay($frame-count) {
+  transition-delay: $frame-count * settings.$transition-duration * 0.2;
+}
+
+.imageEffect {
+  position: relative;
+  z-index: 0;
+
+  height: 100%;
+  width: 100%;
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  align-content: center;
+
+  height: 100%;
+  width: 100%;
+  padding: settings.$padding-block settings.$padding-inline;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: 1;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  padding: settings.$title-padding-block settings.$padding-inline;
+  border-radius: settings.$border-radius;
+  margin-inline: -1 * settings.$padding-inline;
+  margin-bottom: settings.$title-margin-bottom;
+
+  translate: settings.$title-translation-offset;
+
+  color: settings.$title-color;
+  background-color: settings.$title-background-color;
+  opacity: 0;
+
+  @include transition(1);
+  @include transition-delay(2);
+  transition-property: border-radius, translate, opacity;
+}
+.imageEffect:hover .title {
+  border-radius: 0;
+
+  translate: 0 0;
+
+  opacity: 1;
+
+  @include transition-delay(2);
+}
+
+.paragraph {
+  font-size: settings.$paragraph-font-size;
+  line-height: settings.$paragraph-line-height;
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+  margin-bottom: settings.$paragraph-margin-bottom;
+
+  translate: settings.$paragraph-translation-offset;
+
+  color: settings.$paragraph-color;
+  opacity: 0;
+
+  @include transition(1);
+  @include transition-delay(1);
+  transition-property: translate, opacity;
+}
+.imageEffect:hover .paragraph {
+  translate: 0 0;
+
+  opacity: 1;
+
+  @include transition-delay(3);
+}
+
+.linkWrapper {
+  justify-self: start;
+
+  translate: settings.$link-translation-offset;
+
+  opacity: 0;
+
+  @include transition(1);
+  @include transition-delay(0);
+  transition-property: translate, opacity;
+}
+.imageEffect:hover .linkWrapper {
+  translate: 0 0;
+
+  opacity: 1;
+
+  @include transition-delay(4);
+}
+
+.link {
+  display: inline-block;
+
+  font-size: settings.$link-font-size;
+  line-height: 1;
+  font-weight: settings.$link-font-weight;
+
+  padding: settings.$link-padding;
+  border-radius: settings.$link-border-radius;
+
+  color: settings.$link-text-color;
+  background-color: settings.$link-background-color;
+
+  cursor: pointer;
+  @include transition(2);
+  transition-property: color, background-color;
+
+  &:hover:hover:hover {
+    color: settings.$link-text-color-on-hover;
+    background-color: settings.$link-background-color-on-hover;
+  }
+}
+
+.backdrop {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 100%;
+
+  width: 400%;
+  height: 100rem;
+  box-shadow: 0 -99rem 0 settings.$backdrop-color;
+
+  transform-origin: top left;
+  rotate: 45deg;
+
+  background-color: settings.$backdrop-color;
+  opacity: settings.$backdrop-opacity;
+
+  @include transition(2);
+  @include transition-delay(3);
+  transition-property: top, left;
+}
+.imageEffect:hover .backdrop {
+  top: 0;
+  left: 0;
+
+  @include transition-delay(0);
+}
+
+.imageWrapper {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.image {
+  display: block;
+  object-position: center;
+  object-fit: cover;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: settings.$image-background-color;
+}

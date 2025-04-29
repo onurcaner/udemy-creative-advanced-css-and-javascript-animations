@@ -7,9 +7,9 @@ import styles from './AdjustableGridController.module.scss';
 export function AdjustableGridController(): JSX.Element {
   const {
     alignItems,
+    columnCount,
     justifyItems,
-    rotateRowCount,
-    rowCount,
+    rotateColumnCount,
     switchAlignItems,
     switchJustifyItems,
   } = useAdjustableGridContext();
@@ -19,8 +19,8 @@ export function AdjustableGridController(): JSX.Element {
       <li>
         <button
           className={styles.button}
-          onClick={rotateRowCount}
-        >{`grid columns: ${rowCount.toString()}`}</button>
+          onClick={rotateColumnCount}
+        >{`grid columns: ${columnCount.toString()}`}</button>
       </li>
       <li>
         <button

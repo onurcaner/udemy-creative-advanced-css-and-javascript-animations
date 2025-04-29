@@ -1,5 +1,7 @@
-import { JSX, ReactNode, useState } from 'react';
+import { JSX, ReactNode } from 'react';
 
+import { useStateLocalStorage } from '../../hooks/useStateLocalStorage';
+import { LocalStorageKeys } from '../../local-storage/LocalStorageKeys';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
 import styles from './AdjustableGrid.module.scss';
@@ -10,18 +12,24 @@ export function AdjustableGridContextProvider({
 }: {
   children: ReactNode;
 }): JSX.Element {
-  const [rowCount, setRowCount] = useState(3);
-  const [alignItems, setAlignItems] = useState<'center' | 'stretch'>('center');
-  const [justifyItems, setJustifyItems] = useState<'center' | 'stretch'>(
-    'center',
+  const [columnCount, setColumnCount] = useStateLocalStorage(
+    LocalStorageKeys.GridColumnCount,
+    3,
   );
+  const [alignItems, setAlignItems] = useStateLocalStorage<
+    'center' | 'stretch'
+  >(LocalStorageKeys.GridAlignItems, 'center');
+  const [justifyItems, setJustifyItems] = useStateLocalStorage<
+    'center' | 'stretch'
+  >(LocalStorageKeys.GridJustifyItems, 'center');
 
   const gridClassName = joinCssModuleStyles(
     styles.displayGrid,
-    rowCount === 2 && styles.templateColumns2,
-    rowCount === 3 && styles.templateColumns3,
-    rowCount === 4 && styles.templateColumns4,
-    rowCount === 6 && styles.templateColumns6,
+    columnCount === 1 && styles.templateColumns1,
+    columnCount === 2 && styles.templateColumns2,
+    columnCount === 3 && styles.templateColumns3,
+    columnCount === 4 && styles.templateColumns4,
+    columnCount === 6 && styles.templateColumns6,
     alignItems === 'center' && styles.alignItemsCenter,
     alignItems === 'stretch' && styles.alignItemsStretch,
     justifyItems === 'center' && styles.justifyItemsCenter,
@@ -33,12 +41,13 @@ export function AdjustableGridContextProvider({
       value={{
         gridClassName,
 
-        rowCount,
-        rotateRowCount() {
-          if (rowCount === 2) setRowCount(3);
-          if (rowCount === 3) setRowCount(4);
-          if (rowCount === 4) setRowCount(6);
-          if (rowCount === 6) setRowCount(2);
+        columnCount,
+        rotateColumnCount() {
+          if (columnCount === 1) setColumnCount(2);
+          if (columnCount === 2) setColumnCount(3);
+          if (columnCount === 3) setColumnCount(4);
+          if (columnCount === 4) setColumnCount(6);
+          if (columnCount === 6) setColumnCount(1);
         },
 
         alignItems,

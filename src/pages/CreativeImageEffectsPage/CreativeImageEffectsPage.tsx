@@ -6,6 +6,9 @@ import { ImageEffect1 } from '../../sections/creative-image-effects/ImageEffect1
 import { ImageEffect2 } from '../../sections/creative-image-effects/ImageEffect2/ImageEffect2';
 import { ImageEffect3 } from '../../sections/creative-image-effects/ImageEffect3/ImageEffect3';
 import { ImageEffect4 } from '../../sections/creative-image-effects/ImageEffect4/ImageEffect4';
+import { ImageEffect5 } from '../../sections/creative-image-effects/ImageEffect5/ImageEffect5';
+import { ImageEffect6 } from '../../sections/creative-image-effects/ImageEffect6/ImageEffect6';
+import { ImageEffect7 } from '../../sections/creative-image-effects/ImageEffect7/ImageEffect7';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
@@ -14,7 +17,15 @@ import styles from './CreativeImageEffectsPage.module.scss';
 export function CreativeImageEffectsPage(): JSX.Element {
   const { gridClassName } = useAdjustableGridContext();
 
-  const ImageEffects = [ImageEffect1, ImageEffect2, ImageEffect3, ImageEffect4];
+  const ImageEffects = [
+    ImageEffect1,
+    ImageEffect2,
+    ImageEffect3,
+    ImageEffect4,
+    ImageEffect5,
+    ImageEffect6,
+    ImageEffect7,
+  ];
 
   return (
     <>

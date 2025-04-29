@@ -3,8 +3,8 @@ import { createContext } from 'react';
 export const AdjustableGridContext = createContext<{
   gridClassName: string;
 
-  rotateRowCount: () => void;
-  rowCount: number;
+  rotateColumnCount: () => void;
+  columnCount: number;
 
   switchAlignItems: () => void;
   alignItems: string;

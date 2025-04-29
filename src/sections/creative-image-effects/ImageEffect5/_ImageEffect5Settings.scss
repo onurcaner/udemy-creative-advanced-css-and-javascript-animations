@@ -1,8 +1,11 @@
-$title-color: var(--color-neutral-100);
-$paragraph-color: var(--color-neutral-50);
+$title-color: var(--color-green-100);
+$paragraph-color: var(--color-green-50);
+$paragraph-background-color: var(--color-green-900);
 $backdrop-color: var(--color-black);
-$backdrop-opacity-on-hover: 0.5;
+$backdrop-opacity: 0.5;
 $image-background-color: var(--color-neutral-300);
+
+$content-translation-offset-on-hover: 12.5% * 0.25;
 
 $title-font-size: 1.25rem;
 $title-line-height: 1.75rem;
@@ -14,13 +17,12 @@ $paragraph-font-size: 1rem;
 $paragraph-line-height: 1.5rem;
 $paragraph-font-weight: 400;
 $paragraph-max-width: 35ch;
+$paragraph-padding: 0.25rem 0.5rem;
 
 $padding: 5rem 4rem;
 $border-radius: 1px;
 
 $image-object-position: center;
-$image-scaling-factor-on-hover: 1.5;
-$image-rotation-angle-on-hover: 18deg;
 
-$transition-duration: 0.5s;
+$transition-duration: 1s;
 $transition-timing-function: var(--ease-in-out);
