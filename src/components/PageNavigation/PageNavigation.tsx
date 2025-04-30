@@ -8,34 +8,25 @@ import styles from './PageNavigation.module.scss';
 export function PageNavigation(): JSX.Element {
   const { pathname } = useLocation();
 
-  const previousAndNextRoutes = [
-    routes.findPrevious(pathname),
-    routes.findNext(pathname),
-  ].filter((route) => route !== undefined);
+  const thisRoute = routes.find(pathname);
+  const previousRoute = routes.findPrevious(pathname);
+  const nextRoute = routes.findNext(pathname);
 
   return (
     <nav className={styles.nav}>
-      <ol className={styles.list}>
-        {previousAndNextRoutes.map(({ label, name, path }) => (
-          <NavLinkItem key={name} label={label} path={path} />
-        ))}
-      </ol>
-    </nav>
-  );
-}
+      {previousRoute && (
+        <NavLink className={styles.link} to={previousRoute.path}>
+          {previousRoute.label}
+        </NavLink>
+      )}
 
-function NavLinkItem({
-  label,
-  path,
-}: {
-  label: string;
-  path: string;
-}): JSX.Element {
-  return (
-    <li>
-      <NavLink className={styles.link} to={path} replace>
-        {label}
-      </NavLink>
-    </li>
+      {thisRoute && <h1 className={styles.pageTitle}>{thisRoute.label}</h1>}
+
+      {nextRoute && (
+        <NavLink className={styles.link} to={nextRoute.path}>
+          {nextRoute.label}
+        </NavLink>
+      )}
+    </nav>
   );
 }

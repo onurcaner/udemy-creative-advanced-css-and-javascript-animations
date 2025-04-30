@@ -41,6 +41,11 @@ class Routes {
     return route;
   }
 
+  find(routePath: string): RouteAttributes | undefined {
+    const route = this.routes.find(({ path }) => path === routePath);
+    return route;
+  }
+
   findNext(routePath: string): RouteAttributes | undefined {
     const routeIndex = this.routes.findIndex(({ path }) => path === routePath);
     if (routeIndex === -1) return undefined;

@@ -9,6 +9,8 @@ import { ImageEffect4 } from '../../sections/creative-image-effects/ImageEffect4
 import { ImageEffect5 } from '../../sections/creative-image-effects/ImageEffect5/ImageEffect5';
 import { ImageEffect6 } from '../../sections/creative-image-effects/ImageEffect6/ImageEffect6';
 import { ImageEffect7 } from '../../sections/creative-image-effects/ImageEffect7/ImageEffect7';
+import { ImageEffect8 } from '../../sections/creative-image-effects/ImageEffect8/ImageEffect8';
+import { ImageEffect9 } from '../../sections/creative-image-effects/ImageEffect9/ImageEffect9';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
@@ -25,6 +27,8 @@ export function CreativeImageEffectsPage(): JSX.Element {
     ImageEffect5,
     ImageEffect6,
     ImageEffect7,
+    ImageEffect8,
+    ImageEffect9,
   ];
 
   return (

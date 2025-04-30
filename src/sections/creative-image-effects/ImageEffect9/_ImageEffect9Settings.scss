@@ -1,0 +1,36 @@
+$title-color: var(--color-green-200);
+$title-background-color: var(--color-green-950);
+$paragraph-color: var(--color-green-900);
+$link-text-color: var(--color-green-100);
+$link-text-color-on-hover: var(--color-green-50);
+$link-background-color: var(--color-green-900);
+$link-background-color-on-hover: var(--color-green-700);
+$background-color: var(--color-green-50);
+$image-background-color: var(--color-neutral-300);
+$border-color: var(--color-green-200);
+
+$padding-block: 5rem;
+$padding-inline: 4rem;
+$border-thickness: 4px;
+$border-radius: 2px;
+
+$rotation-angle-of-fade-effect: 180deg;
+
+$transition-duration: 1.5s;
+$transition-timing-function: var(--ease-in-out);
+
+$title-font-size: 1.25rem;
+$title-font-weight: 600;
+$title-text-transform: uppercase;
+$title-padding-block: 1.25rem;
+$title-margin-bottom: 0.75rem;
+
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.5rem;
+$paragraph-max-width: 35ch;
+$paragraph-margin-bottom: 1.25rem;
+
+$link-font-size: 1rem;
+$link-font-weight: 600;
+$link-padding: 1rem 2rem;
+$link-border-radius: $border-radius;
