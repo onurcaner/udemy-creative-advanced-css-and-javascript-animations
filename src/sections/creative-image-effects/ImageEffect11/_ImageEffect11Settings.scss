@@ -1,0 +1,35 @@
+$title-color: var(--color-sky-200);
+$title-background-color: var(--color-sky-950);
+$paragraph-color: var(--color-sky-900);
+$link-text-color: var(--color-sky-100);
+$link-text-color-on-hover: var(--color-sky-50);
+$link-background-color: var(--color-sky-900);
+$link-background-color-on-hover: var(--color-sky-700);
+$background-color: var(--color-sky-50);
+$image-background-color: var(--color-neutral-300);
+$border-color: var(--color-sky-100);
+
+$padding-block: 5rem;
+$padding-inline: 4rem;
+$border-radius: 5rem;
+
+$transition-duration: 1.5s;
+$transition-timing-function: var(--ease-in-out);
+
+$content-translation-offset: 1rem;
+
+$title-font-size: 1.25rem;
+$title-font-weight: 600;
+$title-text-transform: uppercase;
+$title-padding-block: 1.25rem;
+$title-margin-bottom: 0.75rem;
+
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.5rem;
+$paragraph-max-width: 35ch;
+$paragraph-margin-bottom: 1.25rem;
+
+$link-font-size: 1rem;
+$link-font-weight: 600;
+$link-padding: 1rem 2rem;
+$link-border-radius: $border-radius;
