@@ -1,0 +1,20 @@
+// Color values
+$text-color: var(--color-neutral-800);
+$text-color-on-hover: var(--color-sky-800);
+$border-color: var(--color-neutral-800);
+$border-color-on-hover: var(--color-sky-800);
+
+// Generic values
+$font-size: 1.25rem;
+$font-weight: 500;
+
+$border-thickness: 2px;
+$border-radius: 1px;
+
+$transition-duration: 0.5s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-column-gap: 1.25rem;
+
+$button-padding: 0.5rem 1rem;

@@ -2,6 +2,7 @@ export enum RouteNames {
   Buttons = 'buttons',
   Images = 'images',
   Sandbox = 'sandbox',
+  Menus = 'menus',
 }
 
 interface RouteAttributes {
@@ -20,6 +21,11 @@ const _routes: RouteAttributes[] = [
     name: RouteNames.Images,
     label: 'Creative Images',
     path: '/creative-images',
+  },
+  {
+    name: RouteNames.Menus,
+    label: 'Creative Menus',
+    path: '/creative-menus',
   },
   {
     name: RouteNames.Sandbox,

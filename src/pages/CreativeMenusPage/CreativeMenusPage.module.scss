@@ -2,5 +2,4 @@
 
 .list {
   @include pageGrid.mixin();
-  grid-auto-rows: 40rem;
 }
