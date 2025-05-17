@@ -1,0 +1,26 @@
+// Color values
+$text-color: var(--color-neutral-800);
+$text-color-on-hover: var(--color-sky-50);
+$background-color-on-hover: var(--color-sky-700);
+$border-color-on-hover: var(--color-sky-700);
+
+// Generic values
+$font-size: 1.25rem;
+$font-weight: 500;
+
+$border-thickness: 3px;
+$border-radius: 1px;
+
+$transition-duration: 0.5s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-column-gap: 1.25rem;
+
+$button-inline-padding: 1rem;
+$button-block-padding: 0.5rem;
+
+$border-width: 1.25rem;
+$border-height: 1rem;
+$border-offset-factor: 4;
+$border-offset-factor-on-hover: 2;

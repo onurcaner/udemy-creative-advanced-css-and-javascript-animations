@@ -3,6 +3,7 @@ import { JSX } from 'react';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { useAdjustableGridContext } from '../../contexts/adjustable-grid/useAdjustableGridContext';
 import { Menu1 } from '../../sections/creative-menus/Menu1/Menu1';
+import { Menu2 } from '../../sections/creative-menus/Menu2/Menu2';
 import { MenuButtonAttributes } from '../../sections/creative-menus/_types/MenuProps';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
@@ -11,7 +12,7 @@ import styles from './CreativeMenusPage.module.scss';
 export function CreativeMenusPage(): JSX.Element {
   const { gridClassName } = useAdjustableGridContext();
 
-  const Menus = [Menu1];
+  const Menus = [Menu1, Menu2];
 
   const collectionOfMenuButtonAttributes: MenuButtonAttributes[] = [
     {
