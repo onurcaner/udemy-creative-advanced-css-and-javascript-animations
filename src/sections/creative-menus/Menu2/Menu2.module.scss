@@ -10,6 +10,13 @@
   justify-content: space-between;
   align-items: center;
   column-gap: settings.$menu-column-gap;
+
+  padding: settings.$menu-padding;
+  border: settings.$menu-border-width solid red;
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$menu-background-color;
+  border-color: settings.$menu-border-color;
 }
 
 .button {
@@ -26,15 +33,15 @@
   line-height: 1;
   font-weight: settings.$font-weight;
 
-  padding: settings.$button-block-padding settings.$button-inline-padding;
+  padding: settings.$button-padding-block settings.$button-padding-inline;
 
-  color: settings.$text-color;
+  color: settings.$button-text-color;
 
   @include transition();
   transition-property: color;
 }
 .button:hover .contentWrapperOfButton {
-  color: settings.$text-color-on-hover;
+  color: settings.$button-text-color-on-hover;
 }
 
 .backgroundOfButton {
@@ -47,7 +54,7 @@
 
   border-radius: settings.$border-radius;
 
-  background-color: settings.$background-color-on-hover;
+  background-color: settings.$button-background-color-on-hover;
   opacity: 0;
 
   @include transition();
@@ -57,81 +64,91 @@
   opacity: 1;
 }
 
-.borderOfButton {
+.outlineOfButton {
   position: absolute;
   z-index: -1;
 
   border-radius: settings.$border-radius;
 
-  background-color: settings.$border-color-on-hover;
+  background-color: settings.$button-border-color-on-hover;
   opacity: 0;
 
   pointer-events: none;
   @include transition();
   transition-property: top, bottom, left, right, opacity;
 }
-.button:hover .borderOfButton {
+.button:hover .outlineOfButton {
   opacity: 1;
 }
 
-.topBorderOfButton {
-  @extend .borderOfButton;
+.topOutlineOfButton {
+  @extend .outlineOfButton;
 
-  top: -1 * settings.$border-offset-factor * settings.$border-thickness;
-  right: -1 * settings.$border-offset-factor * settings.$border-thickness;
+  top: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
+  right: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
 
-  width: settings.$border-width;
-  height: settings.$border-thickness;
+  width: settings.$button-outline-inline-size;
+  height: settings.$button-outline-width;
 }
-.button:hover .topBorderOfButton {
-  top: -1 * settings.$border-offset-factor-on-hover * settings.$border-thickness;
-  right: -1 * settings.$border-offset-factor-on-hover *
-    settings.$border-thickness;
-}
-
-.bottomBorderOfButton {
-  @extend .borderOfButton;
-
-  bottom: -1 * settings.$border-offset-factor * settings.$border-thickness;
-  left: -1 * settings.$border-offset-factor * settings.$border-thickness;
-
-  width: settings.$border-width;
-  height: settings.$border-thickness;
-}
-.button:hover .bottomBorderOfButton {
-  bottom: -1 * settings.$border-offset-factor-on-hover *
-    settings.$border-thickness;
-  left: -1 * settings.$border-offset-factor-on-hover *
-    settings.$border-thickness;
+.button:hover .topOutlineOfButton {
+  top: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
+  right: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
 }
 
-.leftBorderOfButton {
-  @extend .borderOfButton;
+.bottomOutlineOfButton {
+  @extend .outlineOfButton;
 
-  bottom: -1 * settings.$border-offset-factor * settings.$border-thickness;
-  left: -1 * settings.$border-offset-factor * settings.$border-thickness;
+  bottom: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
+  left: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
 
-  width: settings.$border-thickness;
-  height: settings.$border-height;
+  width: settings.$button-outline-inline-size;
+  height: settings.$button-outline-width;
 }
-.button:hover .leftBorderOfButton {
-  bottom: -1 * settings.$border-offset-factor-on-hover *
-    settings.$border-thickness;
-  left: -1 * settings.$border-offset-factor-on-hover *
-    settings.$border-thickness;
+.button:hover .bottomOutlineOfButton {
+  bottom: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
+  left: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
 }
 
-.rightBorderOfButton {
-  @extend .borderOfButton;
+.leftOutlineOfButton {
+  @extend .outlineOfButton;
 
-  top: -1 * settings.$border-offset-factor * settings.$border-thickness;
-  right: -1 * settings.$border-offset-factor * settings.$border-thickness;
+  bottom: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
+  left: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
 
-  width: settings.$border-thickness;
-  height: settings.$border-height;
+  width: settings.$button-outline-width;
+  height: settings.$button-outline-block-size;
 }
-.button:hover .rightBorderOfButton {
-  top: -1 * settings.$border-offset-factor-on-hover * settings.$border-thickness;
-  right: -1 * settings.$border-offset-factor-on-hover *
-    settings.$border-thickness;
+.button:hover .leftOutlineOfButton {
+  bottom: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
+  left: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
+}
+
+.rightOutlineOfButton {
+  @extend .outlineOfButton;
+
+  top: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
+  right: -1 * settings.$button-outline-offset-factor *
+    settings.$button-outline-width;
+
+  width: settings.$button-outline-width;
+  height: settings.$button-outline-block-size;
+}
+.button:hover .rightOutlineOfButton {
+  top: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
+  right: -1 * settings.$button-outline-offset-factor-on-hover *
+    settings.$button-outline-width;
 }

@@ -15,9 +15,10 @@ $menu-border-width: $border-width;
 $menu-background-color: var(--color-neutral-50);
 $menu-border-color: var(--color-neutral-100);
 
-$button-padding: 0.5rem 1rem;
-$button-border-width: 2 * $border-width;
+$button-padding: 0.25rem 1rem;
+$button-underline-width: 4 * $border-width;
 $button-text-color: var(--color-neutral-800);
-$button-text-color-on-hover: var(--color-sky-700);
-$button-border-color: var(--color-neutral-800);
-$button-border-color-on-hover: var(--color-sky-700);
+$button-text-color-on-hover: var(--color-teal-950);
+$button-underline-left-color: var(--color-sky-600);
+$button-underline-right-color: var(--color-green-600);
+$button-underline-mix-blend-mode: lighten;
