@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Menu6 } from '../../sections/creative-menus/Menu6/Menu6';
+import { Menu8 } from '../../sections/creative-menus/Menu8/Menu8';
 import { MenuButtonAttributes } from '../../sections/creative-menus/_types/MenuProps';
 
 import styles from './SandboxPage.module.scss';
@@ -30,7 +30,7 @@ export function SandboxPage(): JSX.Element {
       <PageTitle>Sandbox</PageTitle>
 
       <div className={styles.sandboxWrapper}>
-        <Menu6
+        <Menu8
           collectionOfMenuButtonAttributes={collectionOfMenuButtonAttributes}
         />
       </div>

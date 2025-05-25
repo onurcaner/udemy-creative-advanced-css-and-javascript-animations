@@ -8,6 +8,8 @@ import { Menu3 } from '../../sections/creative-menus/Menu3/Menu3';
 import { Menu4 } from '../../sections/creative-menus/Menu4/Menu4';
 import { Menu5 } from '../../sections/creative-menus/Menu5/Menu5';
 import { Menu6 } from '../../sections/creative-menus/Menu6/Menu6';
+import { Menu7 } from '../../sections/creative-menus/Menu7/Menu7';
+import { Menu8 } from '../../sections/creative-menus/Menu8/Menu8';
 import { MenuButtonAttributes } from '../../sections/creative-menus/_types/MenuProps';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
@@ -16,25 +18,29 @@ import styles from './CreativeMenusPage.module.scss';
 export function CreativeMenusPage(): JSX.Element {
   const { gridClassName } = useAdjustableGridContext();
 
-  const Menus = [Menu1, Menu2, Menu3, Menu4, Menu5, Menu6];
+  const Menus = [Menu1, Menu2, Menu3, Menu4, Menu5, Menu6, Menu7, Menu8];
 
-  const collectionOfMenuButtonAttributes: MenuButtonAttributes[] = [
-    {
-      label: 'Home',
-    },
-    {
-      label: 'About',
-    },
-    {
-      label: 'Services',
-    },
-    {
-      label: 'Portfolio',
-    },
-    {
-      label: 'Contact',
-    },
-  ];
+  const createCollectionOfMenuButtonAttributes = (
+    menuNumber: number,
+  ): MenuButtonAttributes[] => {
+    return [
+      {
+        label: `Home ${String(menuNumber)}`,
+      },
+      {
+        label: `About ${String(menuNumber)}`,
+      },
+      {
+        label: `Services ${String(menuNumber)}`,
+      },
+      {
+        label: `Portfolio ${String(menuNumber)}`,
+      },
+      {
+        label: `Contact ${String(menuNumber)}`,
+      },
+    ];
+  };
 
   return (
     <>
@@ -44,9 +50,9 @@ export function CreativeMenusPage(): JSX.Element {
         {Menus.map((Menu, i) => (
           <li key={i}>
             <Menu
-              collectionOfMenuButtonAttributes={
-                collectionOfMenuButtonAttributes
-              }
+              collectionOfMenuButtonAttributes={createCollectionOfMenuButtonAttributes(
+                i + 1,
+              )}
             />
           </li>
         ))}

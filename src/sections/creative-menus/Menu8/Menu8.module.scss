@@ -1,0 +1,119 @@
+@use './Menu8Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: settings.$menu-column-gap;
+
+  padding: settings.$menu-padding;
+  border: settings.$menu-border-width solid transparent;
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$menu-background-color;
+  border-color: settings.$menu-border-color;
+}
+
+.button {
+  position: relative;
+  z-index: 0;
+
+  cursor: pointer;
+}
+
+.contentWrapperOfButton {
+  display: inline-block;
+
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
+
+  padding: settings.$button-padding;
+
+  color: settings.$button-text-color;
+
+  @include transition();
+  transition-property: color;
+}
+.button:hover .contentWrapperOfButton {
+  color: settings.$button-text-color-on-hover;
+}
+
+.cornerOutlineWrapperOfButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 50%;
+  height: 50%;
+}
+
+.cornerOutlineOfButton {
+  position: absolute;
+  top: -1 * settings.$button-corner-outline-width *
+    settings.$button-corner-outline-offset-factor;
+  left: -1 * settings.$button-corner-outline-width *
+    settings.$button-corner-outline-offset-factor;
+  bottom: 0;
+  right: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+  @include transition();
+  transition-property: top, left, opacity;
+
+  &:nth-child(1) {
+    scale: 1 1;
+    translate: 0% 0%;
+  }
+  &:nth-child(2) {
+    scale: -1 1;
+    translate: 100% 0;
+  }
+  &:nth-child(3) {
+    scale: 1 -1;
+    translate: 0% 100%;
+  }
+  &:nth-child(4) {
+    scale: -1 -1;
+    translate: 100% 100%;
+  }
+}
+.button:hover .cornerOutlineOfButton {
+  top: -1 * settings.$button-corner-outline-width *
+    settings.$button-corner-outline-offset-factor-on-hover;
+  left: -1 * settings.$button-corner-outline-width *
+    settings.$button-corner-outline-offset-factor-on-hover;
+
+  opacity: 1;
+}
+
+.stickOfCornerOutlineOfButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$button-corner-outline-color-on-hover;
+}
+
+.horizontalStickOfCornerOutlineOfButton {
+  @extend .stickOfCornerOutlineOfButton;
+
+  width: settings.$button-corner-outline-inline-size;
+  height: settings.$button-corner-outline-width;
+}
+
+.verticalStickOfCornerOutlineOfButton {
+  @extend .stickOfCornerOutlineOfButton;
+
+  width: settings.$button-corner-outline-width;
+  height: settings.$button-corner-outline-block-size;
+}

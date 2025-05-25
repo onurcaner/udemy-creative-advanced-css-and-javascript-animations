@@ -1,0 +1,110 @@
+@use './Menu7Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: settings.$menu-column-gap;
+
+  padding: settings.$menu-padding;
+  border: settings.$menu-border-width solid transparent;
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$menu-background-color;
+  border-color: settings.$menu-border-color;
+}
+
+.button {
+  position: relative;
+  z-index: 0;
+
+  cursor: pointer;
+}
+
+.contentWrapperOfButton {
+  display: inline-block;
+
+  font-size: settings.$button-font-size;
+  line-height: 1;
+  font-weight: settings.$button-font-weight;
+
+  padding: settings.$button-padding;
+
+  color: settings.$button-text-color;
+
+  @include transition();
+  transition-property: color;
+}
+.button:hover .contentWrapperOfButton {
+  color: settings.$button-text-color-on-hover;
+}
+
+.backgroundOfButton {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  border-radius: settings.$border-radius;
+
+  scale: 0;
+
+  background-color: settings.$button-background-color-on-hover;
+  opacity: 0;
+
+  @include transition();
+  transition-property: scale, opacity;
+}
+.button:hover .backgroundOfButton {
+  scale: 1;
+
+  opacity: 1;
+}
+
+.horizontalOutlineOfButton {
+  position: absolute;
+  left: 0;
+
+  width: 100%;
+  height: settings.$button-outline-width;
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$button-outline-color-on-hover;
+  opacity: 0;
+
+  pointer-events: none;
+  @include transition;
+  transition-property: translate, opacity;
+}
+.button:hover .horizontalOutlineOfButton {
+  opacity: 1;
+}
+
+.topOutlineOfButton {
+  @extend .horizontalOutlineOfButton;
+
+  top: 0;
+
+  translate: 0 (settings.$button-outline-offset-factor * -100%);
+}
+.button:hover .topOutlineOfButton {
+  translate: 0 (settings.$button-outline-offset-factor-on-hover * -100%);
+}
+
+.bottomOutlineOfButton {
+  @extend .horizontalOutlineOfButton;
+
+  bottom: 0;
+
+  translate: 0 (settings.$button-outline-offset-factor * 100%);
+}
+.button:hover .bottomOutlineOfButton {
+  translate: 0 (settings.$button-outline-offset-factor-on-hover * 100%);
+}

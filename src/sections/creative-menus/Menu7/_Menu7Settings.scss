@@ -1,0 +1,23 @@
+$border-width: 1px;
+$border-radius: 1px;
+
+$transition-duration: 0.5s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-column-gap: 1.25rem;
+$menu-padding: 1rem 1.25rem;
+$menu-border-width: $border-width;
+$menu-background-color: var(--color-neutral-50);
+$menu-border-color: var(--color-neutral-100);
+
+$button-font-size: 1.25rem;
+$button-font-weight: 500;
+$button-padding: 0.5rem 1rem;
+$button-outline-width: 0.25rem;
+$button-outline-offset-factor: 3;
+$button-outline-offset-factor-on-hover: 2;
+$button-text-color: var(--color-neutral-800);
+$button-text-color-on-hover: var(--color-sky-50);
+$button-background-color-on-hover: var(--color-sky-700);
+$button-outline-color-on-hover: var(--color-sky-700);
