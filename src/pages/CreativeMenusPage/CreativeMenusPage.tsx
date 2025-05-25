@@ -10,6 +10,8 @@ import { Menu5 } from '../../sections/creative-menus/Menu5/Menu5';
 import { Menu6 } from '../../sections/creative-menus/Menu6/Menu6';
 import { Menu7 } from '../../sections/creative-menus/Menu7/Menu7';
 import { Menu8 } from '../../sections/creative-menus/Menu8/Menu8';
+import { Menu9 } from '../../sections/creative-menus/Menu9/Menu9';
+import { Menu10 } from '../../sections/creative-menus/Menu10/Menu10';
 import { MenuButtonAttributes } from '../../sections/creative-menus/_types/MenuProps';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
@@ -18,7 +20,18 @@ import styles from './CreativeMenusPage.module.scss';
 export function CreativeMenusPage(): JSX.Element {
   const { gridClassName } = useAdjustableGridContext();
 
-  const Menus = [Menu1, Menu2, Menu3, Menu4, Menu5, Menu6, Menu7, Menu8];
+  const Menus = [
+    Menu1,
+    Menu2,
+    Menu3,
+    Menu4,
+    Menu5,
+    Menu6,
+    Menu7,
+    Menu8,
+    Menu9,
+    Menu10,
+  ];
 
   const createCollectionOfMenuButtonAttributes = (
     menuNumber: number,

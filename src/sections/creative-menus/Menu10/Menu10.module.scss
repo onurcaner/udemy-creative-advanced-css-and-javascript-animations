@@ -1,0 +1,93 @@
+@use './Menu10Settings' as settings;
+
+.menu {
+  display: grid;
+  row-gap: settings.$menu-row-gap;
+
+  padding: settings.$menu-padding;
+  border: settings.$menu-border-width solid transparent;
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$menu-background-color;
+  border-color: settings.$menu-border-color;
+}
+
+.button {
+  position: relative;
+  z-index: 0;
+
+  display: grid;
+
+  cursor: pointer;
+}
+
+.contentWrapperOfButton {
+  position: relative;
+  grid-area: 1 / 1 / -1 / -1;
+
+  display: inline-block;
+
+  font-size: settings.$font-size;
+  line-height: 1;
+  font-weight: settings.$font-weight;
+  -webkit-text-stroke: settings.$button-text-stroke-width currentColor;
+
+  translate: 0 0;
+
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+  transition-property:
+    translate,
+    color,
+    -webkit-text-stroke-color,
+    opacity;
+}
+
+.contentWrapperOfButton1 {
+  @extend .contentWrapperOfButton;
+
+  z-index: 1;
+
+  color: settings.$button-text-color-1;
+  -webkit-text-stroke-color: settings.$button-text-stroke-color-1;
+}
+.button:hover .contentWrapperOfButton1 {
+  color: settings.$button-text-color-1-on-hover;
+  -webkit-text-stroke-color: settings.$button-text-stroke-color-1-on-hover;
+}
+
+.contentWrapperOfButton2 {
+  @extend .contentWrapperOfButton;
+
+  z-index: 2;
+
+  color: settings.$button-text-color-2;
+  -webkit-text-stroke-color: settings.$button-text-stroke-color-2;
+  opacity: 0;
+}
+.button:hover .contentWrapperOfButton2 {
+  translate: (1 * settings.$button-text-translate-x-on-hover)
+    (1 * settings.$button-text-translate-y-on-hover);
+
+  color: settings.$button-text-color-2-on-hover;
+  -webkit-text-stroke-color: settings.$button-text-stroke-color-2-on-hover;
+  opacity: 1;
+}
+
+.contentWrapperOfButton3 {
+  @extend .contentWrapperOfButton;
+
+  z-index: 3;
+
+  color: settings.$button-text-color-3;
+  -webkit-text-stroke-color: settings.$button-text-stroke-color-3;
+  opacity: 0;
+}
+.button:hover .contentWrapperOfButton3 {
+  translate: (2 * settings.$button-text-translate-x-on-hover)
+    (2 * settings.$button-text-translate-y-on-hover);
+
+  color: settings.$button-text-color-3-on-hover;
+  -webkit-text-stroke-color: settings.$button-text-stroke-color-3-on-hover;
+  opacity: 1;
+}

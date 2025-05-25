@@ -1,0 +1,29 @@
+// Generic values
+$font-size: 1.25rem;
+$font-weight: 500;
+
+$border-width: 1px;
+$border-radius: 1px;
+
+$transition-duration: 0.5s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-column-gap: 1.25rem;
+$menu-padding: 1rem 1.25rem;
+$menu-border-width: $border-width;
+$menu-background-color: var(--color-neutral-50);
+$menu-border-color: var(--color-neutral-100);
+
+$button-padding-inline: 1rem;
+$button-padding-block: 0.5rem;
+$button-border-inline-size: 100%;
+$button-border-inline-size-on-hover: 1.25rem;
+$button-border-block-size: 100%;
+$button-border-block-size-on-hover: 1rem;
+$button-border-width: 0.125rem;
+$button-border-rotation-angle-on-hover: 360deg;
+$button-text-color: var(--color-neutral-800);
+$button-text-color-on-hover: var(--color-sky-700);
+$button-border-color: var(--color-neutral-800);
+$button-border-color-on-hover: var(--color-sky-700);
