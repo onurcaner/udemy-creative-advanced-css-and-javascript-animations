@@ -1,0 +1,101 @@
+@use './Menu11Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.menu {
+  position: relative;
+  z-index: 0;
+
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  row-gap: settings.$menu-row-gap;
+
+  padding: settings.$menu-padding;
+  border: settings.$menu-border-width solid transparent;
+  border-radius: settings.$border-radius;
+
+  background-color: settings.$menu-background-color;
+  border-color: settings.$menu-border-color;
+
+  @include transition();
+  transition-property: background-color, border-color;
+}
+.menu:has(.button:hover) {
+  background-color: settings.$menu-background-color-on-hover;
+  border-color: settings.$menu-border-color-on-hover;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.contentWrapperOfButton {
+  display: inline-block;
+
+  font-size: settings.$button-font-size;
+  line-height: 1;
+  font-weight: settings.$button-font-weight;
+
+  padding: settings.$button-padding;
+  border-radius: settings.$border-radius;
+
+  color: settings.$button-text-color;
+  background-color: settings.$button-background-color;
+  opacity: 1;
+
+  @include transition();
+  transition-property: color, background-color, opacity;
+}
+.button:hover .contentWrapperOfButton {
+  color: settings.$button-text-color-on-hover;
+  background-color: settings.$button-background-color-on-hover;
+}
+menu:has(.button:hover) .button:not(:hover) .contentWrapperOfButton {
+  color: settings.$button-text-color-on-not-hover;
+  opacity: settings.$button-text-opacity-on-not-hover;
+}
+
+.backgroundTextWrapperOfMenu {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  align-content: center;
+
+  width: 100%;
+  height: 100%;
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.backgroundTextOfMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  font-size: settings.$menu-background-text-font-size;
+  line-height: 1;
+  font-weight: settings.$menu-background-text-font-weight;
+  letter-spacing: settings.$menu-background-text-letter-spacing;
+  text-wrap-mode: nowrap;
+
+  translate: -50% -50%;
+
+  color: transparent;
+
+  @include transition();
+  transition-property: letter-spacing, color;
+}
+.button:hover .backgroundTextOfMenu {
+  letter-spacing: settings.$menu-background-text-letter-spacing-on-hover;
+
+  color: settings.$menu-background-text-color-on-hover;
+}

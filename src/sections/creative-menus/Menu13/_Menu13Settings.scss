@@ -1,0 +1,29 @@
+$border-width: 0px;
+$border-radius: 1px;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-row-gap: 2rem;
+$menu-padding: 2.5rem 4rem;
+$menu-border-width: $border-width;
+$menu-background-color: var(--color-neutral-800);
+$menu-border-color: var(--color-neutral-900);
+
+$button-normal-text-font-size: 2.5rem;
+$button-normal-text-font-weight: 400;
+$button-normal-text-color: var(--color-sky-200);
+$button-normal-text-color-on-hover: var(--color-neutral-200);
+$button-normal-text-opacity-on-hover: 0.25;
+
+$button-glowing-text-font-size: 1.5rem;
+$button-glowing-text-font-weight: 700;
+$button-glowing-text-letter-spacing: 0.5em;
+$button-glowing-text-letter-spacing-on-hover: 0;
+$button-glowing-text-color: var(--color-green-300);
+$button-glowing-text-shadow:
+  0 0 1rem $button-glowing-text-color,
+  0 0 2rem $button-glowing-text-color,
+  0 0 3rem $button-glowing-text-color,
+  0 0 5rem $button-glowing-text-color;

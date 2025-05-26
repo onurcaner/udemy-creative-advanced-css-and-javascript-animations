@@ -1,0 +1,33 @@
+// Generic values
+$font-size: 2.5rem;
+$font-weight: 700;
+
+$border-width: 0px;
+$border-radius: 0.125rem;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-row-gap: 1rem;
+$menu-background-text-font-size: 8rem;
+$menu-background-text-font-weight: 900;
+$menu-background-text-letter-spacing: 0.5em;
+$menu-background-text-letter-spacing-on-hover: 0;
+$menu-padding: 2.5rem 2rem;
+$menu-border-width: $border-width;
+$menu-background-text-color-on-hover: var(--color-sky-300);
+$menu-background-color: var(--color-neutral-50);
+$menu-background-color-on-hover: var(--color-sky-100);
+$menu-border-color: var(--color-neutral-200);
+$menu-border-color-on-hover: var(--color-sky-200);
+
+$button-font-size: 2.5rem;
+$button-font-weight: 700;
+$button-padding: 1rem 2rem;
+$button-text-color: var(--color-neutral-800);
+$button-text-color-on-hover: var(--color-sky-950);
+$button-text-color-on-not-hover: var(--color-neutral-950);
+$button-text-opacity-on-not-hover: 0.5;
+$button-background-color: transparent;
+$button-background-color-on-hover: var(--color-sky-50);

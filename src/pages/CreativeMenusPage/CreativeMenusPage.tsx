@@ -12,6 +12,9 @@ import { Menu7 } from '../../sections/creative-menus/Menu7/Menu7';
 import { Menu8 } from '../../sections/creative-menus/Menu8/Menu8';
 import { Menu9 } from '../../sections/creative-menus/Menu9/Menu9';
 import { Menu10 } from '../../sections/creative-menus/Menu10/Menu10';
+import { Menu11 } from '../../sections/creative-menus/Menu11/Menu11';
+import { Menu12 } from '../../sections/creative-menus/Menu12/Menu12';
+import { Menu13 } from '../../sections/creative-menus/Menu13/Menu13';
 import { MenuButtonAttributes } from '../../sections/creative-menus/_types/MenuProps';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
 
@@ -31,6 +34,9 @@ export function CreativeMenusPage(): JSX.Element {
     Menu8,
     Menu9,
     Menu10,
+    Menu11,
+    Menu12,
+    Menu13,
   ];
 
   const createCollectionOfMenuButtonAttributes = (

@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+// Generic values
+$font-size: 2.5rem;
+$font-weight: 700;
+
+$border-width: 0px;
+$border-radius: 1px;
+
+$transition-duration: 0.5s;
+$transition-timing-function: var(--ease-in-out);
+
+// Specific values
+$menu-row-gap: 2rem;
+$menu-padding: 2.5rem 4rem;
+$menu-border-width: $border-width;
+$menu-background-color: var(--color-neutral-800);
+$menu-border-color: var(--color-neutral-900);
+
+$button-text-stroke-width: math.div(1em, 64);
+$button-caret-symbol-width: 0.5rem;
+$button-caret-symbol-offset: 0.5rem;
+$button-text-color: transparent;
+$button-text-color-on-hover: var(--color-green-400);
+$button-text-stroke-color: var(--color-neutral-200);
+$button-text-stroke-color-on-hover: $button-text-color-on-hover;
+$button-caret-symbol-color: var(--color-green-400);
