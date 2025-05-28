@@ -3,6 +3,7 @@ export enum RouteNames {
   Images = 'images',
   Sandbox = 'sandbox',
   Menus = 'menus',
+  Cards = 'cards',
 }
 
 interface RouteAttributes {
@@ -26,6 +27,11 @@ const _routes: RouteAttributes[] = [
     name: RouteNames.Menus,
     label: 'Creative Menus',
     path: '/creative-menus',
+  },
+  {
+    name: RouteNames.Cards,
+    label: 'Creative Cards',
+    path: '/creative-cards',
   },
   {
     name: RouteNames.Sandbox,

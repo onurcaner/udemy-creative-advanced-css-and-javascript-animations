@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
 import { RootLayout } from '../layouts/RootLayout';
 import { CreativeButtonsPage } from '../pages/CreativeButtonsPage/CreativeButtonsPage';
+import { CreativeCardsPage } from '../pages/CreativeCardsPage/CreativeCardsPage';
 import { CreativeImageEffectsPage } from '../pages/CreativeImageEffectsPage/CreativeImageEffectsPage';
 import { CreativeMenusPage } from '../pages/CreativeMenusPage/CreativeMenusPage';
 import { SandboxPage } from '../pages/SandboxPage/SandboxPage';
@@ -33,6 +34,10 @@ export function AppRouter(): JSX.Element {
           <Route
             path={routes.get(RouteNames.Menus).path}
             element={<CreativeMenusPage />}
+          />
+          <Route
+            path={routes.get(RouteNames.Cards).path}
+            element={<CreativeCardsPage />}
           />
         </Route>
       </Routes>
