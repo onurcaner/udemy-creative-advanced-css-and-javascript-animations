@@ -1,0 +1,126 @@
+@use 'sass:math';
+
+@use './Card2Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.card {
+  position: relative;
+  z-index: 0;
+
+  display: grid;
+  grid-template-rows: minmax(max-content, 1fr) max-content;
+  row-gap: 0;
+
+  min-height: calc(100% - 1 * settings.$card-padding-block);
+  padding: settings.$card-padding-block settings.$card-padding-inline;
+  border-radius: settings.$border-radius;
+  box-shadow: settings.$card-box-shadow;
+  margin-top: settings.$card-padding-block;
+
+  background-color: settings.$card-background-color;
+
+  @include transition();
+  transition-property: row-gap;
+}
+.card:hover {
+  row-gap: settings.$card-padding-block;
+}
+
+.imageWrapper {
+  position: relative;
+  z-index: 1;
+  grid-area: 1 / 1 / 2 / -1;
+
+  height: calc(100% + 2 * settings.$card-padding-block);
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+  box-shadow: settings.$card-image-box-shadow;
+
+  translate: 0 (-2 * settings.$card-padding-block);
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  object-fit: cover;
+  object-position: settings.$card-image-object-position;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: settings.$card-image-background-color;
+}
+
+.visibleTextContentWrapper {
+  grid-area: 1 / 1 / 2 / -1;
+  justify-self: center;
+  align-self: end;
+
+  translate: 0 (-1 * settings.$card-text-content-translation-offset-on-hover);
+
+  opacity: 0;
+
+  @include transition();
+  transition-property: translate, opacity;
+}
+.card:hover .visibleTextContentWrapper {
+  translate: 0 calc(100% + settings.$card-padding-block);
+
+  opacity: 1;
+}
+
+.hiddenTextContentWrapper {
+  grid-area: 2 / 1 / 3 / -1;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: 1;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  margin-bottom: settings.$title-margin-bottom;
+
+  color: settings.$title-text-color;
+
+  @include transition();
+  transition-property: font-size, margin-bottom;
+}
+
+.paragraph {
+  font-size: settings.$paragraph-font-size;
+  line-height: math.div(
+    settings.$paragraph-line-height,
+    settings.$paragraph-font-size
+  );
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+
+  color: settings.$paragraph-text-color;
+
+  @include transition();
+  transition-property: font-size;
+}
+
+.card:not(:hover) .hiddenTextContentWrapper {
+  .title {
+    font-size: 0;
+    margin-bottom: 0;
+  }
+
+  .paragraph {
+    font-size: 0;
+  }
+}
