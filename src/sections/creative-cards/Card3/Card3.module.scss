@@ -1,0 +1,133 @@
+@use './Card3Settings' as settings;
+
+@mixin transition() {
+  transition-duration: settings.$transition-duration;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.card {
+  position: relative;
+  z-index: 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: settings.$card-padding-inline;
+
+  min-height: 100%;
+  padding: settings.$card-padding-block settings.$card-padding-inline;
+  border-radius: settings.$border-radius;
+  box-shadow: settings.$card-box-shadow;
+
+  background-color: settings.$card-background-color;
+}
+
+.hiddenContentWrapper {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.visibleContentWrapper {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+
+  width: calc(50% - 1.5 * settings.$card-padding-inline);
+
+  translate: -50% -50%;
+
+  opacity: 0;
+
+  @include transition();
+  transition-property: left, translate, opacity;
+}
+.card:hover .visibleContentWrapper {
+  left: settings.$card-padding-inline;
+
+  translate: 0 -50%;
+
+  opacity: 1;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: 1;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  margin-bottom: settings.$title-margin-bottom;
+
+  color: settings.$title-text-color;
+}
+
+.paragraph {
+  font-size: settings.$paragraph-font-size;
+  line-height: settings.$paragraph-line-height;
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+  margin-bottom: settings.$paragraph-margin-bottom;
+
+  color: settings.$paragraph-text-color;
+}
+
+.link {
+  display: inline-block;
+
+  font-size: settings.$link-font-size;
+  line-height: 1;
+  font-weight: settings.$link-font-weight;
+  text-transform: settings.$link-text-transform;
+
+  padding: settings.$link-padding;
+  border: settings.$border-width solid transparent;
+  border-radius: settings.$border-radius;
+
+  color: settings.$link-text-color;
+  background-color: settings.$link-background-color;
+  border-color: currentColor;
+
+  cursor: pointer;
+  @include transition();
+  transition-property: color, background-color;
+
+  &:hover {
+    color: settings.$link-text-color-on-hover;
+    background-color: settings.$link-background-color-on-hover;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  right: 50%;
+
+  width: calc(100% - 2 * settings.$card-padding-inline);
+  height: calc(100% - 2 * settings.$card-padding-block);
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+  box-shadow: settings.$card-image-box-shadow;
+
+  translate: 50% 50%;
+
+  @include transition();
+  transition-property: right, width, height;
+}
+.card:hover .imageWrapper {
+  right: 0;
+
+  width: calc(100% - 1 * settings.$card-padding-inline);
+  height: calc(100% + 2 * settings.$card-padding-block);
+}
+
+.image {
+  object-position: settings.$card-image-object-position;
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: settings.$card-image-background-color;
+}

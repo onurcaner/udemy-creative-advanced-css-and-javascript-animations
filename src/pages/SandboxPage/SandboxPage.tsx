@@ -2,7 +2,7 @@ import { JSX, useEffect, useState } from 'react';
 import { FaReact } from 'react-icons/fa6';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Card2 } from '../../sections/creative-cards/Card2/Card2';
+import { Card3 } from '../../sections/creative-cards/Card3/Card3';
 import { CardProps } from '../../sections/creative-cards/_types/CardProps';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 
@@ -38,16 +38,22 @@ export function SandboxPage(): JSX.Element {
       <PageTitle>Sandbox</PageTitle>
 
       <div className={styles.sandboxWrapper}>
-        <div
+        <ul
           className={
-            'w-200 h-160 grid outline outline-lime-600' +
+            'w-240 h-200 grid grid-cols-[1fr_1px] outline outline-lime-600' +
             (isCenter
               ? ' items-center justify-items-center'
               : ' items-stretch justify-items-stretch')
           }
         >
-          <Card2 {...cardProps} />
-        </div>
+          <li>
+            <Card3 {...cardProps} />
+          </li>
+
+          <li>
+            <div className="h-full w-px" />
+          </li>
+        </ul>
       </div>
     </>
   );

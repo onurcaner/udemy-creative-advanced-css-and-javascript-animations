@@ -1,6 +1,6 @@
 // Generic values
 $border-width: 1px;
-$border-radius: 0.125rem;
+$border-radius: 0.25rem;
 
 $transition-duration: 1s;
 $transition-timing-function: var(--ease-in-out);
@@ -9,34 +9,33 @@ $color-box-shadow: rgba(0 0 0 / 0.1);
 
 // Specific values
 $card-padding-inline: 2.5rem;
-$card-padding-block: 2.25rem; // + $card-border-width
-$card-border-width: 0.25rem;
+$card-padding-block: 2rem;
 $card-box-shadow: 0 0 1rem $color-box-shadow;
-$card-background-color: var(--color-sky-50);
-$card-background-color-on-hover: var(--color-sky-800);
+$card-background-color: var(--color-green-800);
+
+$card-image-object-position: center;
+$card-image-box-shadow: 0 0 1rem $color-box-shadow;
+$card-image-background-color: var(--color-sky-50);
 
 $title-font-size: 1.25rem;
 $title-font-weight: 800;
 $title-text-transform: uppercase;
 $title-padding-block: 1.25rem;
 $title-margin-bottom: 0.75rem;
-$title-text-color: var(--color-sky-700);
-$title-text-color-on-hover: var(--color-sky-200);
+$title-text-color: var(--color-green-200);
 
 $paragraph-font-size: 1rem;
 $paragraph-line-height: 1.5rem;
 $paragraph-font-weight: 400;
 $paragraph-max-width: 35ch;
 $paragraph-margin-bottom: 1.25rem;
-$paragraph-text-color: var(--color-sky-900);
-$paragraph-text-color-on-hover: var(--color-sky-50);
+$paragraph-text-color: var(--color-green-100);
 
 $link-font-size: 1rem;
 $link-font-weight: 600;
 $link-text-transform: capitalize;
 $link-padding: 1rem 2rem;
-$link-border-width: $border-width;
-$link-text-color: var(--color-sky-800);
-$link-text-color-on-hover: var(--color-sky-50);
-$link-background-color: var(--color-sky-50);
-$link-background-color-on-hover: var(--color-sky-900);
+$link-text-color: var(--color-green-100);
+$link-text-color-on-hover: var(--color-green-900);
+$link-background-color: var(--color-green-800);
+$link-background-color-on-hover: var(--color-green-100);
