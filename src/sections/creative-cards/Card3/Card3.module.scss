@@ -33,6 +33,10 @@
   top: 50%;
   left: 50%;
 
+  display: grid;
+  justify-content: center;
+  justify-items: start;
+
   width: calc(50% - 1.5 * settings.$card-padding-inline);
 
   translate: -50% -50%;
@@ -81,7 +85,7 @@
   text-transform: settings.$link-text-transform;
 
   padding: settings.$link-padding;
-  border: settings.$border-width solid transparent;
+  border: settings.$link-border-width solid transparent;
   border-radius: settings.$border-radius;
 
   color: settings.$link-text-color;
