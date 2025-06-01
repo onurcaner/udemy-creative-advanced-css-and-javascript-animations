@@ -9,7 +9,7 @@ $color-box-shadow: rgba(0 0 0 / 0.1);
 
 // Specific values
 $card-padding-inline: 2.5rem;
-$card-padding-block: 2rem;
+$card-padding-block: 4rem;
 $card-box-shadow: 0 0 1rem $color-box-shadow;
 $card-background-color: var(--color-green-800);
 
@@ -20,7 +20,6 @@ $card-image-background-color: var(--color-sky-50);
 $title-font-size: 1.25rem;
 $title-font-weight: 800;
 $title-text-transform: uppercase;
-$title-padding-block: 1.25rem;
 $title-margin-bottom: 0.75rem;
 $title-text-color: var(--color-green-200);
 

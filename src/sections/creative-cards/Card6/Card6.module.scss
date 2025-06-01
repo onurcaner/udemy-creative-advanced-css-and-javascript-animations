@@ -1,0 +1,143 @@
+@use 'sass:math';
+
+@use './Card6Settings' as settings;
+
+:export {
+  stackSize: settings.$card-stack-size;
+}
+
+$content-height: settings.$text-content-padding-block * 2 +
+  settings.$title-font-size + settings.$title-margin-bottom +
+  settings.$paragraph-font-size;
+
+@mixin transition($frame-duration) {
+  transition-duration: math.div(
+    $frame-duration * settings.$transition-duration,
+    settings.$card-stack-size
+  );
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.cardStack {
+  position: relative;
+  z-index: 0;
+
+  display: grid;
+
+  min-height: 100%;
+}
+
+.card {
+  position: relative;
+  grid-area: 1 / 1 / -1 / -1;
+
+  display: grid;
+  grid-template-rows: 1fr $content-height;
+
+  min-height: (settings.$image-min-height-factor + 1) * $content-height;
+  border: settings.$card-border-width solid transparent;
+  border-radius: settings.$border-radius;
+  box-shadow: none;
+
+  background-color: settings.$card-background-color;
+
+  @include transition(settings.$card-stack-size);
+  transition-property: rotate, box-shadow;
+
+  &:nth-child(1) {
+    z-index: 0;
+
+    box-shadow: settings.$card-box-shadow;
+  }
+
+  @for $child-number from 2 through settings.$card-stack-size {
+    &:nth-child(#{$child-number}) {
+      z-index: -1 * ($child-number - 1);
+    }
+  }
+}
+@for $child-number from 2 through settings.$card-stack-size {
+  .cardStack:hover .card:nth-child(#{$child-number}) {
+    rotate: ($child-number - 1) *
+      math.div(
+        settings.$card-stack-item-rotation-angle-on-hover,
+        (settings.$card-stack-size - 1)
+      );
+
+    box-shadow: settings.$card-box-shadow;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  border-radius: settings.$border-radius;
+  overflow: hidden;
+
+  @include transition(settings.$card-stack-size);
+  transition-property: bottom;
+}
+.card:hover .imageWrapper {
+  bottom: $content-height;
+}
+
+.image {
+  object-position: settings.$image-object-position;
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: settings.$image-background-color;
+}
+
+.textContentWrapper {
+  position: relative;
+  z-index: -1;
+  grid-area: 2 / 1 / 3 / -1;
+  justify-self: center;
+
+  display: grid;
+  justify-items: center;
+
+  padding-inline: settings.$text-content-padding-inline;
+  padding-block: settings.$text-content-padding-block
+    (settings.$text-content-padding-block - settings.$card-border-width);
+
+  translate: 0 -100%;
+
+  opacity: 0;
+
+  @include transition(settings.$card-stack-size);
+  transition-property: translate, opacity;
+}
+.card:hover .textContentWrapper {
+  translate: 0 0;
+  opacity: 1;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: 1;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  margin-bottom: settings.$title-margin-bottom;
+
+  color: settings.$title-text-color;
+}
+
+.paragraph {
+  font-size: settings.$paragraph-font-size;
+  line-height: 1;
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+
+  color: settings.$paragraph-text-color;
+}

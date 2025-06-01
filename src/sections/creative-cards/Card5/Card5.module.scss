@@ -1,0 +1,172 @@
+@use './Card5Settings' as settings;
+
+@mixin transition($frame-duration) {
+  transition-duration: $frame-duration * settings.$transition-duration * 0.5;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+.cardWrapper {
+  position: relative;
+  z-index: 0;
+
+  display: grid;
+
+  min-height: 100%;
+  filter: drop-shadow(settings.$card-box-shadow);
+}
+
+.card {
+  position: relative;
+  grid-area: 1 / 1 / -1 / -1;
+
+  display: grid;
+
+  border-radius: settings.$border-radius;
+
+  translate: 0 0;
+
+  @include transition(2);
+  transition-property: border-radius, translate;
+}
+
+.topCard {
+  @extend .card;
+
+  z-index: 0;
+
+  background-color: settings.$card-top-background-color;
+}
+.cardWrapper:hover .topCard {
+  border-radius: settings.$border-radius settings.$border-radius 0 0;
+
+  translate: 0 -50%;
+}
+
+.bottomCard {
+  @extend .card;
+
+  z-index: -1;
+
+  background-color: settings.$card-bottom-background-color;
+}
+.cardWrapper:hover .bottomCard {
+  border-radius: 0 0 settings.$border-radius settings.$border-radius;
+
+  translate: 0 50%;
+}
+
+.contentWrapper {
+  grid-area: 1 / 1 / -1 / -1;
+
+  display: grid;
+  align-content: center;
+  justify-items: center;
+
+  padding: settings.$card-padding-block settings.$card-padding-inline;
+}
+
+.hiddenContentWrapper {
+  @extend .contentWrapper;
+
+  visibility: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.visibleContentWrapper {
+  @extend .contentWrapper;
+
+  position: absolute;
+  left: 50%;
+
+  width: 100%;
+
+  @include transition(2);
+  transition-property: top, bottom, translate;
+}
+
+.topCard .visibleContentWrapper {
+  bottom: 50%;
+
+  translate: -50% 50%;
+}
+.cardWrapper:hover .topCard .visibleContentWrapper {
+  bottom: 0;
+
+  translate: -50% 0;
+}
+
+.bottomCard .visibleContentWrapper {
+  top: 50%;
+
+  translate: -50% -50%;
+}
+.cardWrapper:hover .bottomCard .visibleContentWrapper {
+  top: 0;
+
+  translate: -50% 0;
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: 1;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  color: settings.$title-text-color;
+}
+
+.paragraph {
+  text-align: center;
+
+  font-size: settings.$paragraph-font-size;
+  line-height: settings.$paragraph-line-height;
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+  margin-bottom: settings.$paragraph-margin-bottom;
+
+  color: settings.$paragraph-text-color;
+}
+
+.link {
+  font-size: settings.$link-font-size;
+  line-height: 1;
+  font-weight: settings.$link-font-weight;
+  text-transform: settings.$link-text-transform;
+
+  padding: settings.$link-padding;
+  border-radius: settings.$border-radius;
+
+  color: settings.$link-text-color;
+  background-color: settings.$link-background-color;
+
+  cursor: pointer;
+  @include transition(1);
+  transition-property: color, background-color;
+
+  &:hover {
+    color: settings.$link-text-color-on-hover;
+    background-color: settings.$link-background-color-on-hover;
+  }
+}
+
+.iconWrapper {
+  display: grid;
+
+  width: settings.$icon-size;
+  height: settings.$icon-size;
+  margin-bottom: settings.$icon-margin-bottom;
+
+  color: settings.$icon-color;
+}
+
+.iconWrapper svg {
+  width: 100%;
+  height: 100%;
+
+  color: inherit;
+  stroke: currentColor;
+}
