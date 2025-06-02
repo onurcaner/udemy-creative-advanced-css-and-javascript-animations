@@ -9,6 +9,7 @@ import { Card3 } from '../../sections/creative-cards/Card3/Card3';
 import { Card4 } from '../../sections/creative-cards/Card4/Card4';
 import { Card5 } from '../../sections/creative-cards/Card5/Card5';
 import { Card6 } from '../../sections/creative-cards/Card6/Card6';
+import { Card7 } from '../../sections/creative-cards/Card7/Card7';
 import { CardProps } from '../../sections/creative-cards/_types/CardProps';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 import { joinCssModuleStyles } from '../../utils/joinCssModuleStyles';
@@ -18,7 +19,7 @@ import styles from './CreativeCardsPage.module.scss';
 export function CreativeCardsPage(): JSX.Element {
   const { gridClassName } = useAdjustableGridContext();
 
-  const Cards = [Card1, Card2, Card3, Card4, Card5, Card6];
+  const Cards = [Card1, Card2, Card3, Card4, Card5, Card6, Card7];
 
   const generateCardProps = (number: number): Required<CardProps> => {
     return {

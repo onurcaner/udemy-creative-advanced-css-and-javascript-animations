@@ -2,7 +2,7 @@ import { JSX, useEffect, useState } from 'react';
 import { FaReact } from 'react-icons/fa6';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Card6 } from '../../sections/creative-cards/Card6/Card6';
+import { Card7 } from '../../sections/creative-cards/Card7/Card7';
 import { CardProps } from '../../sections/creative-cards/_types/CardProps';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 
@@ -47,7 +47,7 @@ export function SandboxPage(): JSX.Element {
           }
         >
           <li>
-            <Card6 {...cardProps} />
+            <Card7 {...cardProps} />
           </li>
 
           <li>

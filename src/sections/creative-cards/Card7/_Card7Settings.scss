@@ -1,0 +1,50 @@
+@use 'sass:math';
+
+// Generic values
+$border-width: 1px;
+$border-radius: 1rem;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);
+
+$color-box-shadow: rgba(0 0 0 / 0.1);
+
+// Specific values
+$card-padding-inline: 2.5rem;
+$card-padding-block: 4rem;
+$card-box-shadow: 0 0 1rem $color-box-shadow;
+$card-background-color: var(--color-neutral-50);
+
+$image-object-position: center;
+$image-opacity-on-hover: 0.5;
+$image-background-color: var(--color-neutral-800);
+
+$content-padding-block: 2rem;
+$content-padding-block-on-hover: math.max(
+  $card-padding-block,
+  $content-padding-block
+);
+$content-translate-amount-on-not-hover: 2rem;
+
+$title-font-size: 1.25rem;
+$title-font-weight: 800;
+$title-text-transform: uppercase;
+$title-margin-bottom: 0.75rem;
+$title-text-color: var(--color-neutral-700);
+
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.5rem;
+$paragraph-font-weight: 400;
+$paragraph-max-width: 35ch;
+$paragraph-margin-bottom: 1.25rem;
+$paragraph-text-color: var(--color-neutral-800);
+
+$link-font-size: 1rem;
+$link-font-weight: 600;
+$link-text-transform: capitalize;
+$link-padding: 1rem 2rem;
+$link-border-width: $border-width;
+$link-text-color: var(--color-neutral-800);
+$link-text-color-on-hover: var(--color-neutral-100);
+$link-background-color: var(--color-neutral-50);
+$link-background-color-on-hover: var(--color-neutral-800);
