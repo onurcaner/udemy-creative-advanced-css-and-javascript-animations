@@ -2,7 +2,7 @@ import { JSX, useEffect, useState } from 'react';
 import { FaReact } from 'react-icons/fa6';
 
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Card7 } from '../../sections/creative-cards/Card7/Card7';
+import { Card8 } from '../../sections/creative-cards/Card8/Card8';
 import { CardProps } from '../../sections/creative-cards/_types/CardProps';
 import { getRandomCatImageUrl } from '../../utils/getRandomCatImageUrl';
 
@@ -40,14 +40,14 @@ export function SandboxPage(): JSX.Element {
       <div className={styles.sandboxWrapper}>
         <ul
           className={
-            'w-240 h-200 grid grid-cols-[1fr_1px] outline outline-lime-600' +
+            'w-240 h-200 grid grid-cols-[1fr_1px] outline-8 outline-lime-500' +
             (isCenter
               ? ' items-center justify-items-center'
               : ' items-stretch justify-items-stretch')
           }
         >
           <li>
-            <Card7 {...cardProps} />
+            <Card8 {...cardProps} />
           </li>
 
           <li>

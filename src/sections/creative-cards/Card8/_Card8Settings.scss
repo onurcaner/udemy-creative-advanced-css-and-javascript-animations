@@ -1,0 +1,45 @@
+// Generic values
+$border-radius: 0.5rem;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);
+
+$color-box-shadow: rgba(0 0 0 / 0.1);
+
+// Specific values
+$card-padding-inline: 2.5rem;
+$card-padding-block: 2.5rem;
+$card-box-shadow: 0 0 1rem $color-box-shadow;
+$card-background-rotation-angle: 18deg;
+$card-background-rotation-angle-on-hover: -18deg;
+$card-top-background-color: var(--color-neutral-100);
+$card-bottom-background-color: var(--color-neutral-200);
+
+$card-image-object-position: center;
+$card-image-min-height: 20rem;
+$card-image-box-shadow: 0 0 1rem $color-box-shadow;
+$card-image-margin-bottom: 2rem;
+$card-image-background-color: var(--color-neutral-500);
+
+$title-font-size: 1.25rem;
+$title-font-weight: 800;
+$title-text-transform: uppercase;
+$title-margin-bottom: 0.75rem;
+$title-text-color: var(--color-neutral-600);
+
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.5rem;
+$paragraph-font-weight: 400;
+$paragraph-max-width: 35ch;
+$paragraph-margin-bottom: 1.25rem;
+$paragraph-text-color: var(--color-neutral-800);
+
+$link-font-size: 1rem;
+$link-font-weight: 600;
+$link-text-transform: capitalize;
+$link-padding-inline: 2rem;
+$link-padding-block: 1rem;
+$link-text-color: var(--color-neutral-800);
+$link-text-color-on-hover: var(--color-neutral-100);
+$link-background-color: var(--color-neutral-100);
+$link-background-color-on-hover: var(--color-neutral-800);
