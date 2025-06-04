@@ -1,0 +1,312 @@
+@use 'sass:math';
+
+@use './Card9Settings' as settings;
+
+@mixin transition($frame-duration) {
+  transition-duration: $frame-duration * settings.$transition-duration * 0.5;
+  transition-timing-function: settings.$transition-timing-function;
+}
+
+@mixin transition-delay($frame-count) {
+  transition-delay: $frame-count * settings.$transition-duration * 0.5;
+}
+
+@mixin visible-hidden() {
+  visibility: hidden;
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  z-index: 0;
+
+  min-height: 100%;
+  border-radius: settings.$border-radius;
+  box-shadow: settings.$card-box-shadow;
+  overflow: hidden;
+
+  background-color: settings.$card-background-color;
+
+  @include transition(2);
+  transition-property: box-shadow;
+}
+.card:hover {
+  box-shadow: settings.$card-box-shadow-on-hover;
+}
+
+.contentWrapper {
+  display: grid;
+  justify-items: center;
+
+  padding: settings.$card-padding-block settings.$card-padding-inline;
+}
+
+.hiddenContentWrapper {
+  @extend .contentWrapper;
+
+  @include visible-hidden();
+}
+
+.visibleContentWrapper {
+  @extend .contentWrapper;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+  translate: -50% -50%;
+}
+
+.iconWrapper {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+  padding: settings.$icon-padding;
+  border-radius: settings.$icon-border-radius;
+  margin-bottom: settings.$icon-margin-bottom;
+
+  color: settings.$icon-color;
+  background-color: settings.$icon-background-color;
+
+  svg {
+    width: settings.$icon-size;
+    height: settings.$icon-size;
+
+    color: inherit;
+    stroke: currentColor;
+  }
+}
+
+.title {
+  font-size: settings.$title-font-size;
+  line-height: 1;
+  font-weight: settings.$title-font-weight;
+  text-transform: settings.$title-text-transform;
+
+  color: settings.$title-text-color;
+}
+
+.paragraph {
+  text-align: center;
+
+  font-size: settings.$paragraph-font-size;
+  line-height: math.div(
+    settings.$paragraph-line-height,
+    settings.$paragraph-font-size
+  );
+  font-weight: settings.$paragraph-font-weight;
+
+  max-width: settings.$paragraph-max-width;
+  margin-top: settings.$title-margin-bottom;
+  margin-bottom: settings.$paragraph-margin-bottom;
+
+  color: settings.$paragraph-text-color;
+
+  @include transition(2);
+  transition-property: font-size, margin-top, margin-bottom, translate, opacity;
+}
+
+.paragraphWrapper {
+  position: relative;
+  justify-self: stretch;
+
+  display: grid;
+  justify-items: center;
+
+  .paragraph {
+    @include transition-delay(1);
+  }
+
+  .paragraph[aria-hidden='true'] {
+    @include visible-hidden();
+
+    font-size: 0;
+
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .paragraph[aria-hidden='false'] {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    height: max-content;
+
+    translate: -50% (1 * settings.$text-translation-offset-on-hover);
+
+    opacity: 0;
+  }
+}
+.card:hover .paragraphWrapper {
+  position: relative;
+
+  .paragraph {
+    @include transition-delay(0);
+  }
+
+  .paragraph[aria-hidden='true'] {
+    @include visible-hidden();
+
+    font-size: settings.$paragraph-font-size;
+
+    margin-top: settings.$title-margin-bottom;
+    margin-bottom: settings.$paragraph-margin-bottom;
+  }
+
+  .paragraph[aria-hidden='false'] {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    height: max-content;
+
+    translate: -50% 0;
+
+    opacity: 1;
+  }
+}
+
+.link {
+  font-size: settings.$link-font-size;
+  line-height: 1;
+  font-weight: settings.$link-font-weight;
+  text-transform: settings.$link-text-transform;
+
+  padding: settings.$link-padding;
+  border-radius: settings.$border-radius;
+
+  color: settings.$link-text-color;
+  background-color: settings.$link-background-color;
+
+  cursor: pointer;
+  @include transition(2);
+  transition-property:
+    font-size, padding, translate, color, background-color, opacity;
+
+  &:hover {
+    color: settings.$link-text-color-on-hover;
+    background-color: settings.$link-background-color-on-hover;
+  }
+}
+.linkWrapper {
+  position: relative;
+  justify-self: stretch;
+
+  display: grid;
+  justify-items: center;
+
+  .link {
+    @include transition-delay(0);
+  }
+
+  .link[aria-hidden='true'] {
+    @include visible-hidden();
+
+    font-size: 0;
+
+    padding: 0;
+  }
+
+  .link[aria-hidden='false'] {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: max-content;
+    height: max-content;
+
+    translate: -50% (2 * settings.$text-translation-offset-on-hover);
+
+    opacity: 0;
+  }
+}
+.card:hover .linkWrapper {
+  position: relative;
+
+  .link {
+    @include transition-delay(1);
+
+    &:hover {
+      @include transition(1);
+      @include transition-delay(0);
+    }
+  }
+
+  .link[aria-hidden='true'] {
+    @include visible-hidden();
+
+    font-size: settings.$link-font-size;
+
+    padding: settings.$link-padding;
+  }
+
+  .link[aria-hidden='false'] {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: max-content;
+    height: max-content;
+
+    translate: -50% 0;
+
+    opacity: 1;
+  }
+}
+
+.decorationDisk {
+  position: absolute;
+  z-index: -2;
+  top: settings.$decoration-disk-top;
+  left: settings.$decoration-disk-left;
+
+  aspect-ratio: 1;
+  height: settings.$decoration-disk-size;
+  border-radius: 50%;
+
+  translate: -50% -50%;
+
+  background-color: settings.$decoration-disk-background-color;
+
+  @include transition(2);
+  transition-property: top, left, height;
+}
+.card:hover .decorationDisk {
+  top: settings.$decoration-disk-top-on-hover;
+  left: settings.$decoration-disk-left-on-hover;
+
+  height: settings.$decoration-disk-size-on-hover;
+}
+
+.decorationTitle {
+  position: absolute;
+  z-index: -1;
+  top: settings.$decoration-text-top;
+  left: 50%;
+
+  font-size: settings.$decoration-title-font-size;
+  letter-spacing: settings.$decoration-title-letter-spacing;
+  line-height: 1;
+  font-weight: settings.$decoration-title-font-weight;
+  text-transform: settings.$decoration-title-text-transform;
+
+  width: max-content;
+  height: max-content;
+
+  translate: -50% -50%;
+
+  color: settings.$decoration-title-text-color;
+
+  @include transition(2);
+  transition-property: top;
+}
+.card:hover .decorationTitle {
+  top: settings.$decoration-text-top-on-hover;
+}

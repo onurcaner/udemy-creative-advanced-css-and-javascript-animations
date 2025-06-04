@@ -1,0 +1,61 @@
+// Generic values
+$border-radius: 1rem;
+
+$transition-duration: 1s;
+$transition-timing-function: var(--ease-in-out);
+
+$color-box-shadow: rgba(0 0 0 / 0.1);
+
+// Specific values
+$card-padding-inline: 2.5rem;
+$card-padding-block: 4rem;
+$card-box-shadow: 0 0 1rem $color-box-shadow;
+$card-box-shadow-on-hover: 0 0 2rem $color-box-shadow;
+$card-background-color: var(--color-neutral-50);
+
+$icon-size: 4rem;
+$icon-padding: 0rem;
+$icon-border-radius: 50%;
+$icon-margin-bottom: 2rem;
+$icon-color: var(--color-neutral-600);
+$icon-background-color: transparent;
+
+$text-translation-offset-on-hover: 4rem;
+
+$title-font-size: 1.25rem;
+$title-font-weight: 800;
+$title-text-transform: uppercase;
+$title-margin-bottom: 0.75rem;
+$title-text-color: var(--color-neutral-700);
+
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.5rem;
+$paragraph-font-weight: 400;
+$paragraph-max-width: 35ch;
+$paragraph-margin-bottom: 2.5rem;
+$paragraph-text-color: var(--color-neutral-800);
+
+$link-font-size: 1rem;
+$link-font-weight: 600;
+$link-text-transform: capitalize;
+$link-padding: 1rem 2rem;
+$link-text-color: $card-background-color;
+$link-text-color-on-hover: $link-text-color;
+$link-background-color: var(--color-neutral-800);
+$link-background-color-on-hover: $link-background-color;
+
+$decoration-disk-top: 12.5%;
+$decoration-disk-top-on-hover: -12.5%;
+$decoration-disk-left: 75%;
+$decoration-disk-left-on-hover: 87.5%;
+$decoration-disk-size: 75%;
+$decoration-disk-size-on-hover: 125%;
+$decoration-disk-background-color: var(--color-neutral-100);
+
+$decoration-text-top: 25%;
+$decoration-text-top-on-hover: 112.5% * 0.25;
+$decoration-title-font-size: 5rem;
+$decoration-title-letter-spacing: 0;
+$decoration-title-font-weight: 900;
+$decoration-title-text-transform: $title-text-transform;
+$decoration-title-text-color: var(--color-neutral-200);
