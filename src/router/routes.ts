@@ -53,6 +53,10 @@ class Routes {
     return route;
   }
 
+  getAll(): RouteAttributes[] {
+    return this.routes.slice();
+  }
+
   find(routePath: string): RouteAttributes | undefined {
     const route = this.routes.find(({ path }) => path === routePath);
     return route;

@@ -3,12 +3,12 @@
   z-index: 1;
   top: 0;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 1rem;
 
-  padding: 1rem;
+  padding: 1.25rem 2rem;
   border-bottom: 1px solid transparent;
   margin-bottom: 0.5rem;
 
@@ -26,7 +26,9 @@
   color: var(--color-neutral-700);
 }
 
-.link {
+.menuButton {
+  display: inline-block;
+
   font-size: 1rem;
   line-height: 1;
   font-weight: 500;
@@ -46,4 +48,12 @@
   &:last-of-type {
     justify-self: end;
   }
+}
+
+.menuLink {
+  @extend .menuButton;
+
+  font-size: 0.875rem;
+
+  min-width: 100%;
 }

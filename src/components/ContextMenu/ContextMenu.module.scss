@@ -1,0 +1,15 @@
+.menu {
+  position: absolute;
+  z-index: 10;
+
+  display: grid;
+  justify-items: stretch;
+  row-gap: 0.5rem;
+
+  padding: 1.25rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+}
